@@ -1,4 +1,4 @@
-'use client';
+'us client';
 
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 

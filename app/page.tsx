@@ -9,7 +9,7 @@ import { ShimmerButton } from '@/components/shimmer-button';
 import { Meteors } from '@/components/ui/meteors';
 import { TypewriterEffect } from '@/components/ui/typewriter-effect';
 import { TiltedLightSource2 } from "@/components/ui/TiltedLightSource2";
-import { GalaxyNavbar } from "@/components/ui/floating-navbar";
+import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
 
 // Inspired by Aceternity UI's text reveal effect
 const TITLE_WORDS = [
