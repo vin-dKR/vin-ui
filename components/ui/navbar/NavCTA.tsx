@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Sparkle } from 'lucide-react';
 
 export const NavCTA = () => (
-    <div className="hidden md:block w-36 flex-shrink-0">
+    <div className="hidden md:block w-36 mx-4 flex-shrink-0">
         <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

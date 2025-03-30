@@ -11,11 +11,6 @@ interface NavItemsProps {
 
 const navItems = [
     {
-        name: 'Home',
-        link: '/',
-        icon: <Home className="h-4 w-4" />,
-    },
-    {
         name: 'Components',
         link: '/components',
         icon: <Component className="h-4 w-4" />,
