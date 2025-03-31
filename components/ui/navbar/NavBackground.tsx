@@ -16,7 +16,7 @@ export const NavBackground = ({ flarePosition }: NavBackgroundProps) => {
             <motion.div
                 className="absolute inset-0 pointer-events-none"
                 style={{
-                    background: `radial-gradient(circle at ${flarePosition.x}% ${flarePosition.y}%, rgba(124, 58, 237, 0.15) 0%, transparent 70%)`,
+                    background: `radial-gradient(circle at ${flarePosition.x}% ${flarePosition.y}%, rgba(124, 58, 237, 0.15) 0%, transparent 30%)`,
                     opacity,
                     transition: 'opacity 0.3s ease',
                 }}

@@ -1,13 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Home, Component, BookUser } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-interface NavItemsProps {
-    isMobile?: boolean;
-    onItemClick?: () => void;
-}
+import { Component, BookUser } from 'lucide-react';
 
 const navItems = [
     {
@@ -22,34 +16,14 @@ const navItems = [
     },
 ];
 
-export const NavItems = ({ isMobile = false, onItemClick }: NavItemsProps) => {
-    if (isMobile) {
-        return (
-            <div className="flex flex-col items-center py-4 space-y-4 px-4">
-                {navItems.map((item) => (
-                    <Link
-                        key={item.name}
-                        href={item.link}
-                        className="w-full text-center px-4 py-3 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
-                        onClick={onItemClick}
-                    >
-                        <div className="flex items-center justify-center gap-2">
-                            {item.icon}
-                            <span>{item.name}</span>
-                        </div>
-                    </Link>
-                ))}
-            </div>
-        );
-    }
-
+export const NavItems = () => {
     return (
         <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
                 <Link
                     key={item.name}
                     href={item.link}
-                    className="px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                    className="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
                 >
                     <div className="flex items-center gap-2">
                         {item.icon}

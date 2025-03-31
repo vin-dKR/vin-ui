@@ -30,10 +30,15 @@ export const GalaxyNavbar = () => {
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
+        console.log(mobileMenuOpen)
+    };
+
+    const closeMobileMenu = () => {
+        setMobileMenuOpen(false);
     };
 
     return (
-        <div className="relative">
+        <>
             <AnimatePresence>
                 <motion.nav
                     ref={navRef}
@@ -42,17 +47,15 @@ export const GalaxyNavbar = () => {
                     className={cn(
                         'fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[5000]',
                         'backdrop-blur-xl bg-white/5 dark:bg-black/20',
-                        'border border-white/10',
-                        mobileMenuOpen ? 'rounded-xl' : 'rounded-full',
+                        'border border-black/10 dark:border-white/10 rounded-full',
                         'shadow-2xl shadow-purple-500/30',
-                        'overflow-visible w-[95%] md:w-auto h-14 md:h-16'
+                        'overflow-hidden w-[95%] md:w-auto h-14 md:h-16'
                     )}
                 >
                     <NavBackground flarePosition={flarePosition} />
 
                     <div className="relative flex justify-between items-center h-full px-4 md:px-6">
                         <NavLogo />
-
 
                         <NavItems />
                         <NavCTA />
@@ -61,16 +64,15 @@ export const GalaxyNavbar = () => {
                             <NavThemeSwitcher />
                             <NavMobileButton
                                 isOpen={mobileMenuOpen}
-                                onClick={toggleMobileMenu}
+                                onClickAction={toggleMobileMenu}
                             />
                         </div>
                     </div>
+
                 </motion.nav>
             </AnimatePresence>
 
-            {/* Mobile Menu - positioned outside the nav */}
             <NavMobileMenu isOpen={mobileMenuOpen} />
-
-        </div>
+        </>
     );
 };

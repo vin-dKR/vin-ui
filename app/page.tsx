@@ -6,7 +6,7 @@ import { TextReveal } from '@/components/magicui/text-reveal';
 import { BentoGrid } from '@/components/ui/bento-grid';
 import { Spotlight } from '@/components/spotlight';
 import { ShimmerButton } from '@/components/shimmer-button';
-import { Meteors } from '@/components/ui/meteors';
+import { Meteors } from '@/components/magicui/meteors';
 import { TypewriterEffect } from '@/components/ui/typewriter-effect';
 import { TiltedLightSource2 } from "@/components/ui/TiltedLightSource2";
 import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
@@ -66,7 +66,7 @@ const navItems = [
 
 export default function Home() {
     return (
-        <>
+        <div className="bg-gray-100 dark:bg-red-300">
             {/* Inspired by MagicUI's grid background with enhancements */}
             <GridBackground>
                 {/* Inspired by Aceternity UI's spotlight effect */}
@@ -227,6 +227,6 @@ export default function Home() {
                     </div>
                 </footer>
             </GridBackground>
-        </>
+        </div>
     );
 }

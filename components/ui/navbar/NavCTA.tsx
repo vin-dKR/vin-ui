@@ -12,7 +12,7 @@ export const NavCTA = () => (
             className={cn(
                 'w-full h-10 rounded-full font-medium text-sm relative overflow-hidden flex items-center justify-center',
                 'bg-gradient-to-br from-violet-600 to-purple-500',
-                'hover:shadow-lg hover:shadow-violet-500/20 transition-all'
+                'hover:shadow-lg hover:shadow-violet-500/20 transition-all group'
             )}
         >
             <span className="relative z-10 flex items-center gap-1">

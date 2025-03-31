@@ -1,5 +1,8 @@
-// tailwind.config.js
 export default {
+    darkMode: 'class', // This enables class-based dark mode
+    content: [
+        './src/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
     theme: {
         extend: {
             colors: {
@@ -21,5 +24,6 @@ export default {
                 },
             },
         },
+        plugins: [],
     },
 }

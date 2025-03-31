@@ -12,7 +12,7 @@ export const NavLogo = () => (
             >
                 <span className="text-white font-bold text-sm">VU</span>
             </motion.div>
-            <span className="sm:inline font-bold text-sm bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <span className="sm:inline font-bold text-sm bg-gradient-to-r dark:from-white dark:to-purple-400 from-black to-purple-400 bg-clip-text text-transparent">
                 Vin-UI
             </span>
         </Link>
