@@ -33,10 +33,6 @@ export const GalaxyNavbar = () => {
         console.log(mobileMenuOpen)
     };
 
-    const closeMobileMenu = () => {
-        setMobileMenuOpen(false);
-    };
-
     return (
         <>
             <AnimatePresence>

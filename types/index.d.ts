@@ -9,4 +9,14 @@ declare global {
         icon?: React.ReactNode;
         subItems?: NavItem[];
     }
+
+
+    interface NavBackgroundProps {
+        flarePosition: { x: number; y: number };
+    }
+
+    interface NavMobileButtonProps {
+        isOpen: boolean;
+        onClickAction: () => void;
+    }
 }

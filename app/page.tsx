@@ -8,7 +8,6 @@ import { Spotlight } from '@/components/spotlight';
 import { ShimmerButton } from '@/components/shimmer-button';
 import { Meteors } from '@/components/magicui/meteors';
 import { TypewriterEffect } from '@/components/ui/typewriter-effect';
-import { TiltedLightSource2 } from "@/components/ui/TiltedLightSource2";
 import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
 
 // Inspired by Aceternity UI's text reveal effect
@@ -44,35 +43,12 @@ const FEATURES = [
     },
 ];
 
-const navItems = [
-    {
-        name: "Home",
-        link: "/",
-        icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-        name: "About",
-        link: "/about",
-        icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-        name: "Contact",
-        link: "/contact",
-        icon: (
-            <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
-        ),
-    },
-];
-
 export default function Home() {
     return (
         <div className="bg-gray-100 dark:bg-red-300">
-            {/* Inspired by MagicUI's grid background with enhancements */}
             <GridBackground>
-                {/* Inspired by Aceternity UI's spotlight effect */}
                 <Spotlight className="top-40 left-0 md:left-60" fill="rgb(124 58 237 / 0.1)" />
 
-                {/* Inspired by LunarUI's floating nav */}
                 <GalaxyNavbar />
 
                 <div className="container mx-auto px-6 relative z-10">
