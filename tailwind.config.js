@@ -5,6 +5,12 @@ export default {
     ],
     theme: {
         extend: {
+            boxShadow: {
+                'colored': '0 4px 6px -1px rgba(255, 0, 0, 0.5)',
+                'inset-2xs': 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',  // Very subtle
+                'inset-xs': 'inset 0 2px 4px rgba(0, 0, 0, 0.2)',   // Small
+                'inset-sm': 'inset 0 3px 6px rgba(0, 0, 0, 0.2)',   // Slightly larger
+            },
             colors: {
                 background: '#0a0a0a',
                 foreground: '#ffffff',
@@ -23,7 +29,27 @@ export default {
                     900: '#4c1d95',
                 },
             },
+            animation: {
+                spotlight: "spotlight 2s ease .75s 1 forwards",
+                spotlightBtn: "spotlight 2s linear infinite",
+            },
+            keyframes: {
+                spotlight: {
+                    "0%": {
+                        opacity: 0,
+                        transform: "translate(-72%, -62%) scale(0.5)",
+                    },
+                    "100%": {
+                        opacity: 1,
+                        transform: "translate(-50%,-40%) scale(1)",
+                    },
+                },
+                spotlightBtn: {
+                    "0%": { "background-position": "-100% 0" },
+                    "100%": { "background-position": "100% 0" },
+                },
+            },
+            plugins: [],
         },
-        plugins: [],
-    },
+    }
 }

@@ -1,108 +1,32 @@
 'use client';
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { GridBackground } from '@/components/grid-bg';
 import { TextReveal } from '@/components/magicui/text-reveal';
 import { BentoGrid } from '@/components/ui/bento-grid';
 import { Spotlight } from '@/components/spotlight';
 import { ShimmerButton } from '@/components/shimmer-button';
 import { Meteors } from '@/components/magicui/meteors';
-import { TypewriterEffect } from '@/components/ui/typewriter-effect';
 import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
-
-// Inspired by Aceternity UI's text reveal effect
-const TITLE_WORDS = [
-    { text: "Build" },
-    { text: "exceptional" },
-    { text: "interfaces", className: "text-violet-500" },
-];
-
-// Inspired by LunarUI's bento grid
-const FEATURES = [
-    {
-        title: "Pixel Perfection",
-        description: "Crafted to 1px precision",
-        icon: "✨",
-        className: "md:col-span-2",
-    },
-    {
-        title: "Motion Mastery",
-        description: "60fps animations",
-        icon: "🌀",
-    },
-    {
-        title: "Dark Mode",
-        description: "Beautiful in any light",
-        icon: "🌓",
-    },
-    {
-        title: "Accessibility",
-        description: "WCAG 2.1 compliant",
-        icon: "♿",
-        className: "md:col-span-2",
-    },
-];
+import Hero from "@/components/ui/blocks/Hero";
+import MultiColorBg from '@/components/MultiColorBg';
+import { FEATURES } from '@/constants/bento';
 
 export default function Home() {
     return (
-        <div className="bg-gray-100 dark:bg-red-300">
+        <div className="relative bg-gray-100 dark:bg-red-300">
             <GridBackground>
+                <div className='absolute inset-0 right-0 w-full'>
+                    <MultiColorBg />
+                </div>
                 <Spotlight className="top-40 left-0 md:left-60" fill="rgb(124 58 237 / 0.1)" />
 
                 <GalaxyNavbar />
 
                 <div className="container mx-auto px-6 relative z-10">
                     {/* Hero section */}
-                    <section className="min-h-[90vh] flex flex-col justify-center items-center text-center pt-32 pb-20">
-                        {/* Inspired by UI Layouts' badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="px-4 py-2 bg-white/5 backdrop-blur-lg rounded-full mb-8 border border-white/10 shadow-lg"
-                        >
-                            <span className="bg-gradient-to-r from-violet-500 to-purple-300 bg-clip-text text-transparent font-medium">
-                                Version 2.0 just launched
-                            </span>
-                        </motion.div>
-
-                        {/* Inspired by Aceternity UI's typewriter effect */}
-                        <TypewriterEffect words={TITLE_WORDS} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8" />
-
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl"
-                        >
-                            The most advanced React component library for designers who demand perfection.
-                            <span className="hidden md:inline"> Built with Tailwind, Framer Motion, and love.</span>
-                        </motion.p>
-
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            {/* Inspired by MagicUI's shimmer button */}
-                            <ShimmerButton
-                                as="a"
-                                href="/components"
-                                className="relative group overflow-hidden rounded-xl px-8 py-4 bg-gradient-to-br from-violet-600 to-purple-500 font-medium"
-                            >
-                                <span className="relative z-10">Explore Components</span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </ShimmerButton>
-
-                            <motion.button
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                                className="px-8 py-4 rounded-xl bg-white/5 backdrop-blur-lg border border-white/10 font-medium shadow-lg"
-                            >
-                                View on GitHub
-                            </motion.button>
-                        </div>
-                    </section>
-
-                    {/* Bento Grid - Inspired by LunarUI */}
+                    <Hero />
                     <section className="py-32">
-                        <BentoGrid>
+                        <BentoGrid className='w-3/5'>
                             {FEATURES.map((item, i) => (
                                 <motion.div
                                     key={i}
@@ -120,7 +44,6 @@ export default function Home() {
                         </BentoGrid>
                     </section>
 
-                    {/* Showcase - Inspired by UI Layouts */}
                     <section className="py-32">
                         <div className="text-center mb-20">
                             <TextReveal
@@ -150,7 +73,6 @@ export default function Home() {
                         </div>
                     </section>
 
-                    {/* CTA - Inspired by MagicUI meteors */}
                     <section className="py-32 relative overflow-hidden">
                         <Meteors number={10} />
                         <div className="relative z-10 text-center">
@@ -160,7 +82,7 @@ export default function Home() {
                             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
                                 Join thousands of designers and developers shipping better interfaces faster
                             </p>
-
+                            {/*
                             <ShimmerButton
                                 as="a"
                                 href="/docs"
@@ -169,12 +91,12 @@ export default function Home() {
                                 <span className="relative z-10">Get Started</span>
                                 <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </ShimmerButton>
+                            */}
                         </div>
                     </section>
                 </div>
 
-                {/* Footer - Custom premium design */}
-                <footer className="py-16 border-t border-white/10">
+                <footer className="bg-white/30 py-16 border-t border-white/10">
                     <div className="container mx-auto px-6">
                         <div className="flex flex-col md:flex-row justify-between items-center">
                             <div className="mb-6 md:mb-0">

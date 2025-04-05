@@ -15,7 +15,7 @@ export const NavCTA = () => (
                 'hover:shadow-lg hover:shadow-violet-500/20 transition-all group'
             )}
         >
-            <span className="relative z-10 flex items-center gap-1">
+            <span className="relative z-10 flex items-center gap-1 cursor-pointer">
                 <span>Get Started</span>
                 <Sparkle className="h-4 w-4 group-hover:rotate-180 transition-transform" />
             </span>

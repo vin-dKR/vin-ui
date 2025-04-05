@@ -22,7 +22,7 @@ export const NavThemeSwitcher = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 border-white/10 flex-shrink-0"
+            className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 border-white/10 flex-shrink-0"
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
             {theme === 'dark' ? (
