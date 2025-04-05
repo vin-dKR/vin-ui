@@ -1,23 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export const NavThemeSwitcher = () => {
-    const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+    const { theme, setTheme } = useTheme()
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' || 'dark';
-        setTheme(savedTheme);
-        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    }, []);
+        setMounted(true)
+    }, [])
 
     const toggleTheme = () => {
         const newTheme = theme === 'dark' ? 'light' : 'dark';
         setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-        document.documentElement.classList.toggle('dark', newTheme === 'dark');
     };
+
+
+    if (!mounted) return <Sun className='h-5 w-5 text-yellow-300' />
 
     return (
         <button

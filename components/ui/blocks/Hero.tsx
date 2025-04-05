@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { RandomEmoji } from "../RandomEmoji";
 import { Separator } from "../Separator";
 import MySlogan from "@/components/MySlogan";
-import ThreeDBtn from "../3dButton";
-
+import ThreeDBtn from "../customBtn/3dButton";
 
 const Hero = () => {
     return (
