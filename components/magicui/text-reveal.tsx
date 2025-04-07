@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 
 interface TextRevealProps {
-    text: string
+    text?: string
     children?: React.ReactNode;
     className?: string;
     delay?: number;
@@ -31,7 +31,7 @@ export const TextReveal = ({
                 }}
                 className="block"
             >
-                {text}
+                {text} {children}
             </motion.span>
         </div>
     );

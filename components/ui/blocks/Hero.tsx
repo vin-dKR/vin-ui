@@ -50,8 +50,8 @@ const Hero = () => {
 
 
             <div className="flex flex-col sm:flex-row gap-4 md:gap-8">
-                <ThreeDBtn href="/black" text="Browse Components" variant="black" className="text-white" />
-                <ThreeDBtn href="/white" text="View it on Github" variant="white" className="text-black" />
+                <ThreeDBtn href="/components" text="Browse Components" variant="black" className="text-white" />
+                <ThreeDBtn href="https://github.com/vin-dKR/" text="View it on Github" variant="white" className="text-black" />
             </div>
         </section>
     )

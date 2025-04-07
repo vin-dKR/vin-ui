@@ -113,7 +113,7 @@ const MacKeyboard = () => {
                 { key: ',', width: 'w-12' },
                 { key: '.', width: 'w-12' },
                 { key: '/', width: 'w-12' },
-                { key: 'shift', width: 'w-24', align: 'right' },
+                { key: 'CUSTOM', width: 'w-24', align: 'right' },
             ]
         },
         {

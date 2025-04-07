@@ -12,7 +12,10 @@ const ForthGrid = () => {
         ">
             <SpiralCurve className="absolute rotate-45 -left-10 lg:left-50 contrast-150 opacity-25" />
 
-            <div className="absolute left-[35%] lg:left-[40%]">
+            <div className="absolute hidden lg:block top-[-50px] lg:top-0 lg:left-[40%]">
+                <MacKeyboard />
+            </div>
+            <div className="absolute lg:hidden right-0 bottom-13">
                 <MacKeyboard />
             </div>
 

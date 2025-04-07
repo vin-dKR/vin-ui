@@ -28,17 +28,21 @@ const ThreeDBtn = ({
     const baseClasses = `
     px-6 py-3 rounded-full shadow-xl h-full relative group
     inset-shadow-sm/50 inset-shadow-white/50 
-    border border-2 border-white/10 
+    cursor-pointer border border-2 border-white/10 
     transition-all duration-300 ease-in-out
     hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] hover:scale-105
   `;
 
     const frameClasses = cn(gradientClasses[variant], baseClasses, className); // Using cn for clean merging
 
+    const handleClick = () => {
+        window.open(href, '_blank', 'noopener,noreferrer');
+    };
+
     return (
-        <div className={frameClasses}>
+        <div className={frameClasses} onClick={handleClick}>
             <GGButton />
-            <Link href={href}>{text}</Link>
+            <Link target="_blank" href={href}>{text}</Link>
         </div>
     );
 }
