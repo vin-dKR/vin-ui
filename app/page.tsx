@@ -2,47 +2,27 @@
 import { motion } from 'framer-motion';
 import { GridBackground } from '@/components/grid-bg';
 import { TextReveal } from '@/components/magicui/text-reveal';
-import { BentoGrid } from '@/components/ui/bento-grid';
 import { Spotlight } from '@/components/spotlight';
-import { ShimmerButton } from '@/components/shimmer-button';
 import { Meteors } from '@/components/magicui/meteors';
 import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
 import Hero from "@/components/ui/blocks/Hero";
 import MultiColorBg from '@/components/MultiColorBg';
-import { FEATURES } from '@/constants/bento';
+import Bento from '@/components/ui/bento/Bento';
 
 export default function Home() {
     return (
         <div className="relative bg-gray-100 dark:bg-red-300">
             <GridBackground>
-                <div className='absolute inset-0 right-0 w-full'>
-                    <MultiColorBg />
+                <div className='absolute md:inset-0 right-72 top-32 md:right-0 md:top-0 w-full'>
+                    <MultiColorBg className='' />
                 </div>
                 <Spotlight className="top-40 left-0 md:left-60" fill="rgb(124 58 237 / 0.1)" />
 
                 <GalaxyNavbar />
 
-                <div className="container mx-auto px-6 relative z-10">
-                    {/* Hero section */}
+                <div className="container items-center mx-auto px-6 relative z-10">
                     <Hero />
-                    <section className="py-32">
-                        <BentoGrid className='w-3/5'>
-                            {FEATURES.map((item, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                                    viewport={{ once: true }}
-                                    className={`p-8 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg ${item.className || ""}`}
-                                >
-                                    <div className="text-4xl mb-4">{item.icon}</div>
-                                    <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-                                    <p className="text-gray-400">{item.description}</p>
-                                </motion.div>
-                            ))}
-                        </BentoGrid>
-                    </section>
+                    <Bento />
 
                     <section className="py-32">
                         <div className="text-center mb-20">

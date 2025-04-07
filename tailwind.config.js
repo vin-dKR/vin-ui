@@ -30,10 +30,15 @@ export default {
                 },
             },
             animation: {
+                "slide-in": "slideIn 0.3s ease-in-out forwards",
                 spotlight: "spotlight 2s ease .75s 1 forwards",
                 spotlightBtn: "spotlight 2s linear infinite",
             },
             keyframes: {
+                slideIn: {
+                    "0%": { opacity: "0", transform: "translateY(10px)" },
+                    "100%": { opacity: "1", transform: "translateY(0)" },
+                },
                 spotlight: {
                     "0%": {
                         opacity: 0,

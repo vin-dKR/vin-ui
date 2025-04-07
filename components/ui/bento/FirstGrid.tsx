@@ -1,14 +1,15 @@
-import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import { useTheme } from "next-themes"
+import { useState, useEffect } from "react"
+import SpiralCurve from "./svg-components/SpiralCurve"
+import ShinyBox from "./svg-components/ShinyBox"
 
 const FirstGrid = () => {
-    const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const { theme } = useTheme()
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        setMounted(true)
+    }, [])
 
     return (
         <div className="
@@ -18,43 +19,30 @@ const FirstGrid = () => {
             bg-linear-to-bl from-purple-400/5 via-white/5 to-black/30 backdrop-blur-lg 
             border border-white/10 border-2 shadow-lg
         ">
-            <Image
-                src="/spirals-curve.svg"
-                alt="spiral"
-                width={100}
-                height={100}
-                className="absolute w-64"
-            />
+            <SpiralCurve className="absolute w-60" />
 
-            {/* Only render theme-based images after mounting */}
             {mounted && theme === "dark" && (
-                <Image
-                    src="/bento/shiny-card.svg"
-                    alt="shyni-dark"
-                    width={100}
-                    height={100}
+                <ShinyBox
                     className="
-                        absolute w-32 md:w-64 dark:block 
-                        md:right-0 md:top-[-40px] right-11
-                    "
-                />
+                        absolute w-40 md:w-64 md:h-80 dark:block
+                        -top-12 right-6 md:top-[-55px] md:right-0
+                    " />
             )}
             {mounted && theme === "light" && (
-                <Image
-                    src="/bento/shiny-card-light.svg"
-                    alt="shyni"
-                    width={100}
-                    height={100}
-                    className="absolute w-32 md:w-64 top-[20px] right-18 md:right-13 md:top-[3px] dark:hidden"
-                />
+                <ShinyBox
+                    className="
+                        absolute rotate-180 w-40 md:w-64 md:h-80 dark:hidden
+                        -top-6 right-13 md:top-[-15px] md:right-12
+                    " />
             )}
+
 
             <div className="absolute bottom-0 mx-6 my-3 md:my-10">
                 <h1 className="text-2xl">Pixel Perfection</h1>
                 <p className="text-sm text-gray-900/50 dark:text-gray-400">Crafted to 1px precision</p>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default FirstGrid;
+export default FirstGrid
