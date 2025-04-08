@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
-// TypeScript interfaces
 interface KeyObject {
     key: string;
     width: string;
@@ -142,7 +141,7 @@ const MacKeyboard = () => {
     const { theme } = useTheme()
     const isDarkMode = theme === "dark"
 
-    if (!mounted) return <div className='size-14'>not mounted!</div>
+    if (!mounted) return <div className='size-14'></div>
 
     return (
         <div className={"p-6 rounded-xl transition-colors duration-300"}>
