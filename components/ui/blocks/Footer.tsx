@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                         {["GitHub", "Templates", "Components", "Documentation"].map((item) => (
                             <a
                                 key={item}
-                                href="#"
+                                href="https://github.com/vin-dKR/vin-ui"
                                 className="text-gray-400 hover:text-white transition-colors font-medium"
                             >
                                 {item}

@@ -1,86 +1,37 @@
 import React from 'react';
 import Link from 'next/link';
 import { IconStar } from '@tabler/icons-react';
+import { ChevronRight, Home } from 'lucide-react';
+import { docsConfig } from '@/lib/docs-config';
 
-const COMPONENT_CATEGORIES = [
-    { name: 'Animation', components: ['Neon Timeline'] },
-    { name: 'Layout', components: ['Bento Grid', 'Container', 'Flex', 'Grid'] },
-    { name: 'Display', components: ['Card', 'Carousel', 'Hover Card', 'Tabs'] },
-    { name: 'Forms', components: ['Button', 'Input', 'Checkbox', 'Select', 'Radio'] },
-    { name: 'Feedback', components: ['Alert', 'Toast', 'Progress', 'Skeleton'] },
-    { name: 'Navigation', components: ['Navbar', 'Pagination', 'Breadcrumb', 'Sidebar'] },
-    { name: 'Overlays', components: ['Modal', 'Drawer', 'Tooltip', 'Popover'] },
-    { name: 'Data Display', components: ['Table', 'Avatar', 'Badge', 'Tag'] },
-];
-
-// Mark new or trending components
-const NEW_COMPONENTS = ['Motion Card', 'Bento Grid', 'Shimmer'];
-const TRENDING_COMPONENTS = ['Carousel', 'Modal', 'Tabs'];
+const NEW_COMPONENTS = ['Card']
+const TRENDING_COMPONENTS = ['Neon Timeline']
 
 export default function ComponentsPage() {
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="relative p-5 h-auto bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded rounded-xl text-white">
             {/* Navigation */}
-            <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="text-3xl font-bold">
-                        <span className="text-purple-500">V</span>in UI
-                    </div>
-                </Link>
-                <div className="flex gap-6">
-                    <Link href="/components" className="text-purple-400 hover:text-purple-300 transition-colors">
-                        Components
-                    </Link>
-                    <Link href="/docs" className="hover:text-purple-400 transition-colors">
-                        Docs
-                    </Link>
-                    <Link href="https://github.com/yourusername/vin-ui" className="hover:text-purple-400 transition-colors">
-                        GitHub
-                    </Link>
-                </div>
-            </nav>
 
-            <div className="container mx-auto px-6 py-12">
-                <h1 className="text-4xl font-bold mb-8">UI Components</h1>
+            <div className='flex items-center'>
+                <Link href="/"><Home className='w-4 h-4 text-black dark:text-white' /></Link>
+                <ChevronRight className='w-3 h-3 text-black dark:text-white mx-2' />
+                <span className='text-sm text-black dark:text-white'>components</span>
+            </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                    {/* Sidebar */}
-                    <div className="md:col-span-3 space-y-6">
-                        <div className="bg-gray-900 rounded-xl p-6">
-                            <h3 className="text-xl font-bold mb-4">Categories</h3>
-                            <ul className="space-y-2">
-                                {COMPONENT_CATEGORIES.map((category) => (
-                                    <li key={category.name}>
-                                        <button className="w-full text-left py-2 px-3 rounded hover:bg-gray-800 transition-colors">
-                                            {category.name}
-                                            <span className="text-gray-400 text-sm ml-2">({category.components.length})</span>
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+            <div className="container mx-auto px-2 pt-12 text-black dark:text-white">
+                <h1 className="text-4xl font-bold mb-4">UI Components</h1>
 
-                        <div className="bg-gradient-to-br from-purple-900 to-pink-900 rounded-xl p-6">
-                            <h3 className="text-xl font-bold mb-4">Need Help?</h3>
-                            <p className="text-gray-200 mb-4">Check our documentation or join our Discord community for support.</p>
-                            <Link
-                                href="/docs"
-                                className="inline-block bg-white bg-opacity-20 text-white px-4 py-2 rounded-md hover:bg-opacity-30 transition-all"
-                            >
-                                View Documentation
-                            </Link>
-                        </div>
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
                     {/* Main Content */}
-                    <div className="md:col-span-9">
+                    <div className="md:col-span-4">
                         {/* Search bar */}
                         <div className="mb-8">
                             <div className="relative">
                                 <input
                                     type="text"
                                     placeholder="Search components..."
-                                    className="w-full bg-gray-900 border border-gray-700 rounded-xl py-3 px-4 pl-12 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                    className="w-full bg-gray-900/10 border border-gray-700/10 rounded-xl py-3 px-4 pl-12 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                                 />
                                 <svg
                                     className="absolute left-4 top-3.5 text-gray-400"
@@ -101,22 +52,23 @@ export default function ComponentsPage() {
 
                         {/* Components Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {COMPONENT_CATEGORIES.flatMap((category) =>
-                                category.components.map((component) => {
-                                    const slug = component.toLowerCase().replace(/\s+/g, '-');
-                                    const isNew = NEW_COMPONENTS.includes(component);
-                                    const isTrending = TRENDING_COMPONENTS.includes(component);
+                            {docsConfig.sidebarNav
+                                .filter((category) => category.title !== "Getting Started")
+                                .flatMap((section) => section.items)
+                                .map((item, index) => {
+                                    const isNew = NEW_COMPONENTS.includes(item.title);
+                                    const isTrending = TRENDING_COMPONENTS.includes(item.title);
 
                                     return (
                                         <Link
-                                            key={component}
-                                            href={`/components/${slug}`}
-                                            className="group bg-gray-900 rounded-xl overflow-hidden hover:transform hover:scale-102 transition-all border border-gray-800 hover:border-purple-500/50"
+                                            key={index}
+                                            href={item.href}
+                                            className="group bg-gray-900/5 rounded-xl overflow-hidden hover:transform hover:scale-102 transition-all border border-gray-800/30 hover:border-purple-500/50"
                                         >
-                                            <div className="aspect-video bg-gray-800 p-4 flex items-center justify-center relative">
+                                            <div className="aspect-video bg-gray-800/10 p-4 flex items-center justify-center relative">
                                                 {/* Component preview would go here */}
                                                 <div className="text-5xl text-gray-700 group-hover:text-purple-500 transition-colors">
-                                                    {component[0]}
+                                                    {item.title[0]} {/* First letter of component name */}
                                                 </div>
 
                                                 {/* Tags */}
@@ -135,13 +87,14 @@ export default function ComponentsPage() {
                                                 </div>
                                             </div>
                                             <div className="p-4">
-                                                <h3 className="font-medium mb-1 group-hover:text-purple-400 transition-colors">{component}</h3>
-                                                <p className="text-sm text-gray-400">{category.name}</p>
+                                                <h3 className="font-medium mb-1 group-hover:text-purple-400 transition-colors">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-sm text-gray-400">{item.category}</p>
                                             </div>
                                         </Link>
                                     );
-                                })
-                            )}
+                                })}
                         </div>
                     </div>
                 </div>

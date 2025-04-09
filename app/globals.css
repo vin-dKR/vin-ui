@@ -163,6 +163,26 @@
   }
 }
 
-.glow {
-  animation: glow 2s infinite;
+::-webkit-scrollbar {
+  width: 4px; 
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(241, 241, 241, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.5); /* Semi-transparent gray */
+  border-radius: 4px; /* Matches track */
+  transition: background 0.2s; /* Smooth hover effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.7); /* Darker on hover */
+}
+
+html {
+  scroll-behavior: smooth;
 }

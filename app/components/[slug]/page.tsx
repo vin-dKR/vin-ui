@@ -85,24 +85,6 @@ export { Button, buttonVariants };`,
     return (
         <div className="min-h-screen bg-black text-white">
             {/* Navigation */}
-            <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="text-3xl font-bold">
-                        <span className="text-purple-500">V</span>in UI
-                    </div>
-                </Link>
-                <div className="flex gap-6">
-                    <Link href="/components" className="hover:text-purple-400 transition-colors">
-                        Components
-                    </Link>
-                    <Link href="/docs" className="hover:text-purple-400 transition-colors">
-                        Docs
-                    </Link>
-                    <Link href="https://github.com/yourusername/vin-ui" className="hover:text-purple-400 transition-colors">
-                        GitHub
-                    </Link>
-                </div>
-            </nav>
 
             <div className="container mx-auto px-6 py-12">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-12">
@@ -208,7 +190,7 @@ export { Button, buttonVariants };`,
                         </div>
                     </div>
 
-                    {/* Sidebar */}
+                    {/* Sidebar Installation*/}
                     <div className="lg:col-span-4 space-y-6">
                         <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
                             <h3 className="text-xl font-bold mb-4">Installation</h3>
@@ -241,6 +223,8 @@ export { Button, buttonVariants };`,
                             </div>
                         </div>
 
+
+                        {/* sourceCode */}
                         <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
                             <h3 className="text-xl font-bold mb-4">Source Code</h3>
                             <div className="bg-black rounded-lg p-4 font-mono text-sm relative max-h-96 overflow-auto">
@@ -262,53 +246,10 @@ export { Button, buttonVariants };`,
                             </div>
                         </div>
 
-                        <div className="bg-gradient-to-br from-purple-900 to-pink-900 rounded-xl p-6">
-                            <h3 className="text-xl font-bold mb-4">Need Help?</h3>
-                            <p className="text-gray-200 mb-4">Having trouble with this component? Check our documentation or join our Discord community.</p>
-                            <div className="flex gap-2">
-                                <Link
-                                    href="/docs/components/button"
-                                    className="flex-1 bg-white bg-opacity-20 text-white px-4 py-2 rounded-md hover:bg-opacity-30 transition-all text-center"
-                                >
-                                    Documentation
-                                </Link>
-                                <a
-                                    href="https://discord.gg/yourlink"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex-1 bg-white bg-opacity-20 text-white px-4 py-2 rounded-md hover:bg-opacity-30 transition-all text-center"
-                                >
-                                    Discord
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Footer */}
-            <footer className="container mx-auto px-6 py-12 border-t border-gray-800 mt-12">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="flex items-center gap-2">
-                        <div className="text-2xl font-bold">
-                            <span className="text-purple-500">V</span>in UI
-                        </div>
-                    </div>
-
-                    <div className="text-gray-400 text-sm">
-                        Copyright © {new Date().getFullYear()} Vin UI. All rights reserved.
-                    </div>
-
-                    <div className="flex gap-4">
-                        <Link href="https://github.com/yourusername/vin-ui" className="text-gray-400 hover:text-white">
-                            <IconBrandGithub size={24} />
-                        </Link>
-                        <Link href="https://twitter.com/yourusername" className="text-gray-400 hover:text-white">
-                            <IconBrandTwitter size={24} />
-                        </Link>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 }
