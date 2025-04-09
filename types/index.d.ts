@@ -19,4 +19,25 @@ declare global {
         isOpen: boolean;
         onClickAction: () => void;
     }
+
+    interface SearchBarProps {
+        searchQuery: string;
+        setSearchQuery: (query: string) => void;
+    }
+
+    interface CategoryFilterProps {
+        selectedCategory: string | null;
+        setSelectedCategory: (category: string | null) => void;
+    }
+
+    interface ComponentsGridProps {
+        selectedCategory: string | null;
+        searchQuery: string;
+    }
+
+    interface MetadataBarProps {
+        selectedCategory: string | null;
+        setSelectedCategory: (category: string | null) => void;
+    }
+
 }
