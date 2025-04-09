@@ -24,7 +24,7 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
 
     return (
         <footer className="relative w-full py-16 bg-white dark:bg-black/90 transition-colors duration-300 border-t border-gray-200 dark:border-gray-700 backdrop-blur-lg">
-            <MultiColorBg className='absolute w-42 top-[-400px] left-[-900px] lg:top-[-350px] lg:left-0 lg:w-full z-10' />
+            <MultiColorBg width='1934' height='1658' className='absolute w-42 top-[-400px] left-[-900px] lg:top-[-350px] lg:left-0 lg:w-full z-10' />
             <div className="container mx-auto lg:w-[60%] px-6 z-20">
                 <div className="flex flex-col md:flex-row justify-between lg:items-center">
                     <div className="mb-10 md:mb-0">

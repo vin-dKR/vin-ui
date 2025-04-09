@@ -14,7 +14,7 @@ export default function ComponentsPage() {
 
 
     return (
-        <div className='flex flex-row gap-8'>
+        <div className='flex w-full flex-row gap-8'>
             <div className="p-5 w-full bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded-xl text-white">
                 <Breadcrumbs
                     currentPage="Components"
@@ -23,7 +23,7 @@ export default function ComponentsPage() {
                 <div className="container mx-auto px-2 pt-12 text-black dark:text-white">
                     <h1 className="text-4xl font-bold mb-4">UI Components</h1>
 
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div className="gap-8">
                         <div className="md:col-span-4">
                             <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
                             <CategoryFilter

@@ -14,7 +14,7 @@ export default function Home() {
         <div className="relative bg-gray-100 dark:bg-red-300">
             <GridBackground>
                 <div className='absolute md:inset-0 right-72 top-32 md:right-0 md:top-0 w-full'>
-                    <MultiColorBg className='' />
+                    <MultiColorBg className='' width='1932' height='1658' />
                 </div>
                 <Spotlight className="top-40 left-0 md:left-60" fill="rgb(124 58 237 / 0.1)" />
 

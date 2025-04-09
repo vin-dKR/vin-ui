@@ -1,7 +1,13 @@
-const MultiColorBg = ({ className }: { className: string }) => {
+interface MultiColorBgProps {
+    className: string
+    height: string
+    width: string
+}
+
+const MultiColorBg = ({ className, width, height }: MultiColorBgProps) => {
     return (
         <div className={className}>
-            <svg width="1934" height="1658" viewBox="0 0 1934 1658" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width={width} height={height} viewBox="0 0 1934 1658" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_f_42_7)">
                     <path d="M975.341 930.01C1020.91 813.123 1167.35 761.054 1302.43 813.712C1437.51 866.37 1510.07 1003.81 1464.51 1120.7C1418.94 1237.59 1272.5 1289.66 1137.42 1237C1002.34 1184.34 929.775 1046.9 975.341 930.01Z" fill="#69C1FF" />
                     <path d="M967.896 1011.96L427.686 801.367L583.974 400.455L1124.18 611.045L967.896 1011.96Z" fill="#3F00FB" />

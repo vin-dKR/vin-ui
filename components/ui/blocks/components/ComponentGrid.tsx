@@ -26,7 +26,7 @@ const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) 
                     <Link
                         key={index}
                         href={item.href}
-                        className="group bg-gray-900/5 rounded-xl overflow-hidden hover:transform hover:scale-102 transition-all border border-gray-800/30 hover:border-purple-500/50"
+                        className="group min-w-[220px] w-auto h-full bg-gray-900/5 rounded-xl overflow-hidden hover:transform hover:scale-102 transition-all border border-gray-800/30 hover:border-purple-500/50"
                     >
                         <div className="aspect-video bg-gray-800/10 p-4 flex items-center justify-center relative">
                             <div className="text-5xl text-gray-700 group-hover:text-purple-500 transition-colors">

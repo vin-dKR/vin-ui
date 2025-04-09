@@ -44,7 +44,7 @@ export const GalaxyNavbar = () => {
                         'fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[5000]',
                         'backdrop-blur-xl bg-white/5 dark:bg-black/20',
                         'border border-black/10 dark:border-white/10 rounded-full',
-                        'shadow-2xl shadow-purple-500/30',
+                        'shadow-2xl shadow-purple-500/20',
                         'overflow-hidden w-[95%] md:w-auto h-14 md:h-16'
                     )}
                 >
