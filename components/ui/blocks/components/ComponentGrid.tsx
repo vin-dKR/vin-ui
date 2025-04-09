@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { IconStar } from '@tabler/icons-react';
 import { docsConfig } from '@/lib/docs-config';
+import GlowingCard from './GlowingCard';
 
 const NEW_COMPONENTS = ['Card']
 const TRENDING_COMPONENTS = ['Neon Timeline']
@@ -17,42 +18,52 @@ const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) 
         })
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:min-w-3xl">
             {filteredComponents.map((item, index) => {
                 const isNew = NEW_COMPONENTS.includes(item.title);
                 const isTrending = TRENDING_COMPONENTS.includes(item.title);
 
                 return (
-                    <Link
-                        key={index}
-                        href={item.href}
-                        className="group min-w-[220px] w-auto h-full bg-gray-900/5 rounded-xl overflow-hidden hover:transform hover:scale-102 transition-all border border-gray-800/30 hover:border-purple-500/50"
-                    >
-                        <div className="aspect-video bg-gray-800/10 p-4 flex items-center justify-center relative">
-                            <div className="text-5xl text-gray-700 group-hover:text-purple-500 transition-colors">
-                                {item.title[0]}
+                    <a key={index} href={item.href}>
+                        <GlowingCard className="h-full w-full group-hover:border-purple-500/50">
+                            <div className="aspect-video bg-gray-900/30 p-4 flex items-center justify-center relative">
+                                <div className="text-5xl bg-white/5 w-full h-full rounded-xl text-gray-700 group-hover:text-purple-500 transition-colors">
+                                    {item.title[0]}
+                                </div>
+                                <div className="absolute top-2 right-2 flex gap-2">
+                                    {isNew && (
+                                        <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">
+                                            New
+                                        </span>
+                                    )}
+                                    {isTrending && (
+                                        <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="12"
+                                                height="12"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            >
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                            </svg>
+                                            Trending
+                                        </span>
+                                    )}
+                                </div>
                             </div>
-                            <div className="absolute top-2 right-2 flex gap-2">
-                                {isNew && (
-                                    <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full">
-                                        New
-                                    </span>
-                                )}
-                                {isTrending && (
-                                    <span className="text-xs bg-orange-500 text-white px-2 py-0.5 rounded-full flex items-center gap-1">
-                                        <IconStar size={12} />
-                                        Trending
-                                    </span>
-                                )}
+                            <div className="p-4">
+                                <h3 className="font-medium mb-1 group-hover:text-purple-400 transition-colors">
+                                    {item.title}
+                                </h3>
+                                <p className="text-sm text-gray-400">{item.category}</p>
                             </div>
-                        </div>
-                        <div className="p-4">
-                            <h3 className="font-medium mb-1 group-hover:text-purple-400 transition-colors">
-                                {item.title}
-                            </h3>
-                            <p className="text-sm text-gray-400">{item.category}</p>
-                        </div>
-                    </Link>
+                        </GlowingCard>
+                    </a>
                 );
             })}
         </div>

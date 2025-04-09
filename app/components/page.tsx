@@ -14,33 +14,31 @@ export default function ComponentsPage() {
 
 
     return (
-        <div className='flex w-full flex-row gap-8'>
+        <div className='flex w-full flex-row gap-2 lg:gap-8'>
             <div className="p-5 w-full bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded-xl text-white">
                 <Breadcrumbs
                     currentPage="Components"
                 />
 
-                <div className="container mx-auto px-2 pt-12 text-black dark:text-white">
+                <div className="px-2 pt-12 text-black dark:text-white">
                     <h1 className="text-4xl font-bold mb-4">UI Components</h1>
 
-                    <div className="gap-8">
-                        <div className="md:col-span-4">
-                            <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-                            <CategoryFilter
-                                selectedCategory={selectedCategory}
-                                setSelectedCategory={setSelectedCategory}
-                            />
-                            <ComponentsGrid
-                                selectedCategory={selectedCategory}
-                                searchQuery={searchQuery}
-                            />
-                        </div>
+                    <div className="w-full lg:w-full gap-8">
+                        <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+                        <CategoryFilter
+                            selectedCategory={selectedCategory}
+                            setSelectedCategory={setSelectedCategory}
+                        />
+                        <ComponentsGrid
+                            selectedCategory={selectedCategory}
+                            searchQuery={searchQuery}
+                        />
                     </div>
                 </div>
             </div>
 
             <div
-                className="fixed px-4 pt-4 bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl top-[calc(5rem_+_35px)] z-30 ml-2 hidden h-[calc(90vh-6.5rem)] w-[220px] shrink-0 md:sticky md:block"
+                className="fixed px-4 pt-4 bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl z-30 ml-2 hidden h-[calc(90vh-6.5rem)] w-[220px] shrink-0 md:sticky md:block"
             >
                 <MetadataBar
                     selectedCategory={selectedCategory}

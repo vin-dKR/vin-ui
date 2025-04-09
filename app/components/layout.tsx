@@ -46,7 +46,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
             <MultiColorBg width="800" height="700" className="absolute opacity-50 dark:opacity-25 bottom-[700px] -left-[200px] lg:bottom-[400px] lg:left-[00px]" />
             <MultiColorBg width="1600" height="1600" className="absolute opacity-50 dark:opacity-25 -left-[200px] lg:-bottom-[400px] lg:left-[500px]" />
 
-            <div className="flex flex-col md:flex-row mx-3 md:mx-auto relative gap-2 md:gap-10">
+            <div className="flex flex-col md:flex-row mx-3 md:mx-auto relative gap-4 lg:gap-10">
                 <aside
                     className="fixed px-4 pr-2 pt-4 bg-gradient-to-b dark:from-white/5 bg-opacity-50 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl top-[calc(5rem_+_35px)] z-30 ml-2 hidden h-[calc(90vh-6.5rem)] w-[220px] shrink-0 md:sticky md:block"
                 >
