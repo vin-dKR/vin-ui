@@ -73,6 +73,24 @@ export const docsConfig: DocsConfig = {
                     items: [],
                     category: "Overlays"
                 },
+                {
+                    title: "Button",
+                    href: "/components/button",
+                    items: [],
+                    category: "Forms"
+                },
+                {
+                    title: "Card",
+                    href: "/components/card",
+                    items: [],
+                    category: "Display"
+                },
+                {
+                    title: "Neon Timeline",
+                    href: "/components/neon-timeline",
+                    items: [],
+                    category: "Overlays"
+                },
             ],
         },
     ],

@@ -26,7 +26,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
 
             {/* Mobile Menu Overlay */}
             <div className={`
-                md:hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm transition-opacity duration-300
+                md:hidden fixed inset-0 z-30 bg-black/5 backdrop-blur-sm transition-opacity duration-300
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
                 `}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -35,30 +35,28 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
             {/* Mobile Sidebar (Animated) */}
             <aside className={`
                     md:hidden fixed top-[calc(5rem_+_10px)] right-4 z-35 w-[calc(100%-2rem)] max-w-xs
-                    bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg
-                    rounded-xl p-4 border border-gray-800/30 shadow-xl
+                    bg-gradient-to-b dark:from-white/5 from-black/5 from-50% to-transparent backdrop-blur-md
+                    rounded rounded-xl p-4
                     transition-all duration-300 transform
                     ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-[120%]'}
                     `}>
                 <DocsSidebar items={docsConfig.sidebarNav} />
             </aside>
 
-            <MultiColorBg width="800" height="700" className="absolute opacity-50 dark:opacity-25 bottom-[700px] -left-[200px] lg:bottom-[400px] lg:left-[00px]" />
-            <MultiColorBg width="1600" height="1600" className="absolute opacity-50 dark:opacity-25 -left-[200px] lg:-bottom-[400px] lg:left-[500px]" />
+            <MultiColorBg width="800" height="700" className="absolute fixed opacity-50 dark:opacity-25 bottom-[700px] -left-[200px] lg:bottom-[400px] lg:left-[00px]" />
+            <MultiColorBg width="1600" height="1600" className="absolute fixed opacity-50 dark:opacity-25 -left-[200px] lg:-bottom-[400px] lg:left-[500px]" />
 
-            <div className="flex flex-col md:flex-row mx-3 md:mx-auto relative gap-4 lg:gap-10">
+            <div className="flex md:flex-row mx-auto relative gap-4 lg:gap-10">
                 <aside
-                    className="fixed px-4 pr-2 pt-4 bg-gradient-to-b dark:from-white/5 bg-opacity-50 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl top-[calc(5rem_+_35px)] z-30 ml-2 hidden h-[calc(90vh-6.5rem)] w-[220px] shrink-0 md:sticky md:block"
+                    className="fixed md:left-4 lg:left-0 xl:left-64 px-4 pr-2 pt-4 bg-gradient-to-b dark:from-white/5 bg-opacity-50 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl top-[calc(5rem_+_35px)] z-30 ml-4 hidden h-[calc(90vh-6.5rem)] w-[240px] shrink-0 md:block"
                 >
                     <DocsSidebar items={docsConfig.sidebarNav} />
                 </aside>
 
                 <main
-                    className="md:mx-auto overflow-y-auto w-full mt-30"
+                    className="mx-auto overflow-y-auto mt-30"
                 >
-                    <div className="w-full ">
-                        {children}
-                    </div>
+                    {children}
                 </main>
             </div>
         </div>

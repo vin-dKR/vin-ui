@@ -14,8 +14,8 @@ export default function ComponentsPage() {
 
 
     return (
-        <div className='flex w-full flex-row gap-2 lg:gap-8'>
-            <div className="p-5 w-full bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded-xl text-white">
+        <div className='flex w-full lg:flex-row gap-2 lg:gap-8'>
+            <div className="p-5 w-full bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded-xl text-white h-auto">
                 <Breadcrumbs
                     currentPage="Components"
                 />
@@ -37,13 +37,13 @@ export default function ComponentsPage() {
                 </div>
             </div>
 
-            <div
-                className="fixed px-4 pt-4 bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl z-30 ml-2 hidden h-[calc(90vh-6.5rem)] w-[220px] shrink-0 md:sticky md:block"
-            >
-                <MetadataBar
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                />
+            <div className="hidden md:block fixed md:right-0 lg:right-0 xl:right-64 top-[calc(5rem_+_1rem)] h-[calc(100vh-6.5rem)] w-[270px] p-4 overflow-y-auto">
+                <div className="bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl h-full p-4">
+                    <MetadataBar
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                    />
+                </div>
             </div>
         </div>
     )

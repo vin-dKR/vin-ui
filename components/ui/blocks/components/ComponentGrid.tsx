@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import { IconStar } from '@tabler/icons-react';
 import { docsConfig } from '@/lib/docs-config';
 import GlowingCard from './GlowingCard';
 
@@ -18,13 +16,13 @@ const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) 
         })
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 lg:min-w-3xl">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6 min-w-md xl:min-w-3xl">
             {filteredComponents.map((item, index) => {
                 const isNew = NEW_COMPONENTS.includes(item.title);
                 const isTrending = TRENDING_COMPONENTS.includes(item.title);
 
                 return (
-                    <a key={index} href={item.href}>
+                    <a key={index} href={item.href} className='w-full'>
                         <GlowingCard className="h-full w-full group-hover:border-purple-500/50">
                             <div className="aspect-video bg-gray-900/30 p-4 flex items-center justify-center relative">
                                 <div className="text-5xl bg-white/5 w-full h-full rounded-xl text-gray-700 group-hover:text-purple-500 transition-colors">

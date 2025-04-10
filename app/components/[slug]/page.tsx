@@ -1,9 +1,15 @@
+"use client"
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { IconCode, IconCopy, IconBrandNpm, IconBrandGithub, IconBrandTwitter } from '@tabler/icons-react';
+import MetadataBar from '@/components/ui/blocks/components/MetadataBar';
 
 // This would be fetched dynamically based on the slug
 // For this example, I'm hardcoding a Button component
 export default function ComponentPage({ params }: { params: { slug: string } }) {
+
+    const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+    const [searchQuery, setSearchQuery] = useState('');
     const componentName = params.slug
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -83,10 +89,10 @@ export { Button, buttonVariants };`,
     };
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className=" flex mx-auto">
             {/* Navigation */}
 
-            <div className="container mx-auto px-6 py-12">
+            <div className=" w-full max-w-3xl px-6 py-12">
                 <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-12">
                     <Link href="/components" className="text-purple-400 hover:text-purple-300">
                         ← Back to Components
@@ -116,9 +122,9 @@ export { Button, buttonVariants };`,
                     </nav>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="grid mx-auto w-full grid-cols-1 lg:grid-cols-8 gap-8">
                     {/* Main content */}
-                    <div className="lg:col-span-8 space-y-8">
+                    <div className="lg:col-span-4 space-y-8">
                         <div>
                             <h1 className="text-4xl font-bold mb-4">{component.name}</h1>
                             <p className="text-xl text-gray-300">{component.description}</p>
@@ -249,6 +255,16 @@ export { Button, buttonVariants };`,
                     </div>
                 </div>
             </div>
+
+            <div className="hidden md:block fixed right-70 top-[calc(5rem_+_1rem)] h-[calc(100vh-6.5rem)] w-[260px] p-4 overflow-y-auto">
+                <div className="bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl h-full p-4">
+                    <MetadataBar
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
+                    />
+                </div>
+            </div>
+
 
         </div>
     );
