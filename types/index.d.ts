@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react"
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export { }
 
@@ -40,4 +41,21 @@ declare global {
         setSelectedCategory: (category: string | null) => void;
     }
 
+    interface MDXHeading {
+        text: string
+        depth: number
+        slug: string
+    }
+
+    interface MDXFrontmatter {
+        title: string
+        description: string
+    }
+
+    interface MDXContent {
+        frontMatter: MDXFrontmatter
+        content: MDXRemoteSerializeResult,
+        slug: string
+        headings?: MDXHeading[]
+    }
 }
