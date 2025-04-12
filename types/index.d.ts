@@ -58,4 +58,21 @@ declare global {
         slug: string
         headings?: MDXHeading[]
     }
+
+
+    interface TableOfContentsProps {
+        headings: MDXHeading[];
+        activeHeading?: string;
+    }
+
+    interface BreadcrumbItem {
+        label: string;
+        href: string;
+    }
+
+    interface BreadcrumbsProps {
+        items?: BreadcrumbItem[];
+        currentPage: string;
+    }
+
 }

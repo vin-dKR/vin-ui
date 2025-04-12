@@ -10,7 +10,7 @@ import MetadataBar from '@/components/ui/blocks/components/MetadataBar';
 
 export default function ComponentsPage() {
     const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
 
     return (

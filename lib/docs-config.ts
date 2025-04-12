@@ -37,17 +37,17 @@ export const docsConfig: DocsConfig = {
             items: [
                 {
                     title: "Introduction",
-                    href: "/docs",
+                    href: "/components/introduction",
                     items: [],
                 },
                 {
                     title: "Installation",
-                    href: "/docs/installation",
+                    href: "/components/installation",
                     items: [],
                 },
                 {
                     title: "CLI",
-                    href: "/docs/cli",
+                    href: "/components/cli",
                     items: [],
                 },
             ],
