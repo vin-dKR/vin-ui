@@ -41,7 +41,11 @@ export default async function ComponentPage({
     }
 
     return (
-        <div className="flex flex-col mx-auto p-8 mb-100 bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded-xl text-black dark:text-white h-auto gap-8">
+        <div className="
+            flex flex-col mx-auto p-8 mb-100 h-auto gap-8
+            bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent 
+            rounded-xl text-black dark:text-white 
+        ">
 
             <Breadcrumbs
                 items={[{
@@ -50,14 +54,21 @@ export default async function ComponentPage({
                 }]}
                 currentPage={slug}
             />
-            <article className=" dark:prose-invert lg:max-w-3xl">
-                <h1>{doc.frontMatter.title}</h1>
+            <article className=" dark:prose-invert lg:w-3xl px-8">
+                <h1 className='text-4xl font-bold'>{doc.frontMatter.title}</h1>
                 <p className="lead">{doc.frontMatter.description}</p>
                 <MDXViewer content={doc.content} />
             </article>
 
-            <div className="hidden md:block fixed md:right-0 lg:right-0 xl:right-64 top-[calc(5rem_+_1rem)] h-[calc(100vh-6.5rem)] w-[270px] p-4 overflow-y-auto">
-                <div className="bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl h-full p-8">
+            <div className="
+                hidden md:block fixed overflow-y-auto
+                md:right-0 lg:right-0 xl:right-64 top-[calc(5rem_+_1rem)] 
+                h-[calc(100vh-6.5rem)] w-[270px] p-4 
+            ">
+                <div className="
+                    bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent 
+                    backdrop-blur-lg rounded-xl h-full px-8 py-4
+                ">
                     <TOCWrapper headings={doc.headings} />
                 </div>
             </div>

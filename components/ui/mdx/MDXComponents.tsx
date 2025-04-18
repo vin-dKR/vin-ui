@@ -26,7 +26,7 @@ export function MDXComponents(): MDXComponentsType {
         h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h1
                 className={cn(
-                    "font-heading mt-2 scroll-m-20 text-4xl font-bold",
+                    "font-heading mt-10 mb-1 scroll-m-20 text-2xl font-bold",
                     className,
                 )}
                 {...props}
@@ -35,7 +35,7 @@ export function MDXComponents(): MDXComponentsType {
         h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h2
                 className={cn(
-                    "font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+                    "font-heading mt-4 scroll-m-20 border-b pb-2 text-xl font-semibold tracking-tight first:mt-0",
                     className,
                 )}
                 {...props}
@@ -44,7 +44,7 @@ export function MDXComponents(): MDXComponentsType {
         h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h3
                 className={cn(
-                    "font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+                    "font-heading mt-2 scroll-m-20 text-lg font-semibold tracking-tight",
                     className,
                 )}
                 {...props}
@@ -53,7 +53,7 @@ export function MDXComponents(): MDXComponentsType {
         h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h4
                 className={cn(
-                    "font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+                    "font-heading mt-2 scroll-m-20 text-md font-semibold tracking-tight",
                     className,
                 )}
                 {...props}
@@ -62,7 +62,7 @@ export function MDXComponents(): MDXComponentsType {
         h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h5
                 className={cn(
-                    "mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+                    "mt-2 scroll-m-20 text-sm font-semibold tracking-tight",
                     className,
                 )}
                 {...props}
@@ -71,7 +71,7 @@ export function MDXComponents(): MDXComponentsType {
         h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
             <h6
                 className={cn(
-                    "mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+                    "mt-2 scroll-m-20 text-base font-semibold tracking-tight",
                     className,
                 )}
                 {...props}
@@ -85,7 +85,7 @@ export function MDXComponents(): MDXComponentsType {
         ),
         p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
             <p
-                className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+                className={cn("leading-7 [&:not(:first-child)]:mt-2", className)}
                 {...props}
             />
         ),
@@ -100,7 +100,7 @@ export function MDXComponents(): MDXComponentsType {
         ),
         blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
             <blockquote
-                className={cn("mt-6 border-l-2 pl-6 italic", className)}
+                className={cn("my-6 border-l-2 pl-6 italic", className)}
                 {...props}
             />
         ),
@@ -193,72 +193,48 @@ export function MDXComponents(): MDXComponentsType {
                 {...props}
             />
         ),
-        pre: ({
-            className,
-            __rawString__,
-            __npmCommand__,
-            __pnpmCommand__,
-            __yarnCommand__,
-            __bunCommand__,
-            __withMeta__,
-            __src__,
-            __event__,
-            __name__,
-            ...props
-        }: React.HTMLAttributes<HTMLPreElement> & {
-            __rawString__?: string;
-            __npmCommand__?: string;
-            __pnpmCommand__?: string;
-            __yarnCommand__?: string;
-            __bunCommand__?: string;
-            __withMeta__?: boolean;
-            __src__?: string;
-            __event__?: Event["name"];
-            __name__?: string;
-        }) => {
-            const isNpmCommand =
-                __npmCommand__ && __yarnCommand__ && __pnpmCommand__ && __bunCommand__;
+        pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
+            return (
+                <pre
+                    className={cn(
+                        "mb-4 mt-6 p-4 overflow-x-auto rounded-lg border bg-indigo-600/10 text-black dark:bg-indigo-900/5 dark:text-white",
+                        className
+                    )}
+                    {...props}
+                />
+            );
+        },
+        code: ({ className, children, ...props }: React.HTMLAttributes<HTMLElement>) => {
+            // Check if this is a code block (pre is the parent)
+            const isCodeBlock = typeof children === 'string' && children.includes('\n');
 
-            if (isNpmCommand) {
+            if (isCodeBlock) {
                 return (
-                    <CodeBlockCommand
-                        __npmCommand__={__npmCommand__}
-                        __yarnCommand__={__yarnCommand__}
-                        __pnpmCommand__={__pnpmCommand__}
-                        __bunCommand__={__bunCommand__}
-                    />
+                    <code
+                        className={cn(
+                            "font-mono text-sm",
+                            className
+                        )}
+                        {...props}
+                    >
+                        {children}
+                    </code>
                 );
             }
 
+            // Inline code
             return (
-                <>
-                    <pre
-                        className={cn(
-                            "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-                            className,
-                        )}
-                        {...props}
-                    />
-                    {__rawString__ && __src__ && __event__ && (
-                        <CopyButton
-                            value={__rawString__}
-                            src={__src__}
-                            event={__event__}
-                            className={cn("absolute right-4 top-4 bg-red-500", __withMeta__ && "top-16")}
-                        />
+                <code
+                    className={cn(
+                        "rounded bg-zinc-600/20 px-2.5 py-0.5 font-mono text-sm text-black dark:bg-white/20 dark:text-white",
+                        className
                     )}
-                </>
+                    {...props}
+                >
+                    {children}
+                </code>
             );
         },
-        code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-            <code
-                className={cn(
-                    "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm",
-                    className,
-                )}
-                {...props}
-            />
-        ),
         LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
             <Link
                 className={cn(
@@ -273,11 +249,5 @@ export function MDXComponents(): MDXComponentsType {
 
 export type MDXComponentProps = {
     components?: MDXComponentsType
-}
-
-
-interface MDXProps {
-    code: string;
-    className?: string;
 }
 

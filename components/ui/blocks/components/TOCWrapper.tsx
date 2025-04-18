@@ -17,7 +17,7 @@ const TOCWrapper = ({ headings }: { headings: MDXHeading[] | undefined }) => {
                 };
             });
 
-            const scrollPosition = window.scrollY + 300;
+            const scrollPosition = window.scrollY + 400;
 
             for (let i = headingsWithPositions.length - 1; i >= 0; i--) {
                 if (scrollPosition >= headingsWithPositions[i].offsetTop) {

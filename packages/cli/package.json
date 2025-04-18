@@ -1,0 +1,28 @@
+{
+  "name": "vin-ui/cli",
+  "version": "1.0.0",
+  "description": "CLI for installing vin-ui components",
+  "main": "dist/index.js",
+  "bin": {
+    "vin-ui": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "fs-extra": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "../templates"
+  ],
+  "license": "MIT"
+}

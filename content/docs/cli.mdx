@@ -1,0 +1,164 @@
+---
+title: VIN-UI CLI Walk through
+description: Easy-peasy guide to using the VIN-UI CLI for adding slick UI components to your Next.js projects, no package manager drama required.
+---
+
+>🚀 VIN-UI CLI: Your Rust-Powered Sidekick for Next.js Greatness 😎
+
+Welcome to the **VIN-UI CLI**, the Rust-fueled beast that lets you slap gorgeous UI components into your Next.js projects faster than you can say "npm install" (yuck!). 🐢💤 This guide is your cheat sheet to wielding VIN-UI like a pro, with zero package manager nonsense. Ready to make your app look so good it’ll have users throwing their credit cards at you? 💸 Let’s dive in! 😏
+
+# What the fug is it? 🤔
+
+VIN-UI is a CLI tool that runs on Rust’s lightning speed 🦀, letting you initialize a component directory, list available components, and add them to your Next.js project with simple copy-paste vibes. No npm, no Bun, just pure, chad-level efficiency. 💪 Built by Vinod KR, this bad boy is here to make your UI game unstoppable. 🔥
+
+# Before You Start 📋
+
+Make sure you’ve got VIN-UI installed. If not, check out our [installation guide](install.mdx) to clone the repo and get it running. You’ll also need:
+
+- A **Next.js project** ready to be jazzed up. Don’t have one? Run `npx create-next-app@latest` to whip one up. 🚀
+- A terminal and some swagger. 😎
+
+Got that? Let’s get to the fun part! 🎉
+
+# CLI Commands 🪄
+
+The VIN-UI CLI is loaded with four main commands to make your life easy. Here’s how to use them, with examples to keep things chill.
+
+## 1. Initialize Your Project (`init`) 🏗️
+
+Before you start dropping components, you need to set up your Next.js project to play nice with VIN-UI. The `init` command creates the right folder structure so you’re ready to roll.
+
+```bash
+cd your-nextjs-project
+vin-ui init
+```
+
+**What it does**:
+- Creates a `components/ui/` folder where your shiny components will live.
+- Adds a `lib/utils.ts` file for any utility functions your components might need.
+
+**When to use it**: Run this once in your Next.js project directory to get started. Think of it as laying the foundation for your UI empire. 🏰
+
+## 2. List Available Components (`list`) 📜
+
+Curious about what components VIN-UI has in its arsenal? The `list` command spills the tea on all available components you can add.
+
+```bash
+vin-ui list
+```
+
+**What it does**:
+- Shows a list of components (like `Button`, `Card`, etc.) from the `templates` directory, along with any dependencies or utilities they need.
+
+**When to use it**: Run this when you’re browsing for inspiration or planning your UI. It’s like window-shopping for components, but free! 🛍️
+
+## 3. Add a Component (`add`) 🛠️
+
+This is where the magic happens. The `add` command lets you grab a component and drop it into your project, ready to use.
+
+```bash
+vin-ui add Button
+```
+
+**What it does**:
+- Copies the `Button` component (or whatever you choose) into your `components/ui/` folder.
+- Sets up any required dependencies or utilities automatically.
+
+**When to use it**: Whenever you want to add a specific component to your project. Run `vin-ui list` first to see what’s available. Pro tip: You can chain these to add multiple components like a boss. 😏
+
+**Example**:
+```bash
+vin-ui add Card
+vin-ui add Navbar
+```
+Now your project has a `Card` and `Navbar` component, ready to make your app look fire. 🔥
+
+## 4. Get Help (`help` or `--help`) ❓
+
+Lost? Need a refresher? The `help` command (or `-h`/`--help` flag) is your trusty sidekick, spitting out a cool ASCII logo and all the CLI details.
+
+```bash
+vin-ui help
+# or
+vin-ui --help
+# or
+vin-ui -h
+```
+
+**What it does**:
+- Prints a snazzy blue ASCII logo (because why not?) and a breakdown of all commands, flags, and examples.
+- Looks something like this:
+
+```
+
+█░█ █ █▄░█ ▄▄ █░█ █
+▀▄▀ █ █░▀█ ░░ █▄█ █
+
+A powerful UI component manager for Next.js projects
+
+USAGES:
+    vin-ui [SUBCOMMAND]
+
+SUBCOMMAND
+    add <COMPONENT_NAME>        Add a component to your project
+    list                        List all available components
+    init                        Initialize the components directory
+
+FLAGS:
+    -h  --help                  Print this help message
+
+EXAMPLES:
+    vin-ui add Button           # Add Button component
+    vin-ui list                 # List all available components
+```
+
+**When to use it**: Whenever you’re like, “Wait, what does this CLI do again?” It’s your quick guide to VIN-UI glory. 📖
+
+# Example Workflow 😎
+
+Here’s how you might use VIN-UI to level up your Next.js project in a few minutes:
+
+1. **Set up your project**:
+   ```bash
+   cd my-awesome-app
+   vin-ui init
+   ```
+
+2. **Check out the goods**:
+   ```bash
+   vin-ui list
+   ```
+
+3. **Add some components**:
+   ```bash
+   vin-ui add Button
+   vin-ui add Hero
+   ```
+
+4. **Use them in your app**:
+   ```jsx
+   import { Button, Hero } from '@/components/ui';
+
+   export default function Home() {
+     return (
+       <div>
+         <Hero title="Welcome to My App" cta="Get Started" />
+         <Button>Click Me!</Button>
+       </div>
+     );
+   }
+   ```
+
+5. **Flex your new UI**: Run `npm run dev` and watch your app shine. ✨
+
+# Troubleshooting 😬
+
+- **Command not found?** Make sure `~/.cargo/bin` is in your PATH. Run `source $HOME/.cargo/env` or restart your terminal.
+- **Component not adding?** Check that you ran `vin-ui init` first and that the component name matches what’s in `vin-ui list`.
+- **Still confused?** Run `vin-ui help` for a refresher or hit up our GitHub issues page. We got you! 🤝
+
+
+
+
+
+

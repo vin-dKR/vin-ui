@@ -35,9 +35,9 @@ const DocsSidebar = ({ items }: DocsSidebarProps) => {
                                     key={idx}
                                     href={subItem.href}
                                     className={cn(
-                                        "flex w-full items-center rounded-md p-1 opacity-50 hover:opacity-100 pl-4",
+                                        "flex w-full items-center rounded-md p-1 opacity-75 hover:opacity-100 pl-4",
                                         {
-                                            "bg-muted": pathname === subItem.href,
+                                            "bg-muted dark:bg-purple-500/30": pathname === subItem.href,
                                         }
                                     )}
                                 >
