@@ -1,7 +1,9 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/magicui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/magicui/Tabs"
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { MDXComponents as MDXComponentsType } from 'mdx/types'
+import { ComponentSource } from "@/components/magicui/ComponentSource";
+import { ComponentPreview, ComponentWrapper } from "@/components/magicui/ComponentPreview";
 
 const CustomLink = (props: any) => {
     const href = props.href;
@@ -243,6 +245,17 @@ export function MDXComponents(): MDXComponentsType {
                 )}
                 {...props}
             />
+        ),
+        ComponentPreview: ({
+            name
+        }: React.ComponentProps<typeof ComponentPreview>) => (
+            <ComponentWrapper name={name} />
+        ),
+        ComponentSource: ({
+            className,
+            ...props
+        }: React.ComponentProps<typeof ComponentSource>) => (
+            <ComponentSource {...props} />
         ),
     }
 };
