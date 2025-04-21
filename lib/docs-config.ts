@@ -62,8 +62,8 @@ export const docsConfig: DocsConfig = {
                     category: "Forms"
                 },
                 {
-                    title: "Card",
-                    href: "/components/card",
+                    title: "Random Emoji",
+                    href: "/components/random-emoji",
                     items: [],
                     category: "Display"
                 },

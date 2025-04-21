@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/magicui/Button"
+import Button from "@/components/magicui/Button"
 import {
     Collapsible,
     CollapsibleContent,
@@ -45,7 +45,7 @@ export function CodeBlockWrapper({
                     )}
                 >
                     <CollapsibleTrigger asChild>
-                        <Button variant="secondary" className="mb-8 h-8 text-xs">
+                        <Button variant="white" className="mb-8 h-8 text-xs">
                             {isOpened ? "Collapse" : expandButtonTitle}
                         </Button>
                     </CollapsibleTrigger>

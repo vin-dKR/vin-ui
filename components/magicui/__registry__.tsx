@@ -12,13 +12,13 @@ export const Index: Record<string, any> = {
         registryDependencies: undefined,
         files: [
             {
-                path: "@/components/magicui/MagicCard.tsx",
+                path: "../srcCode/button.tsx",
                 type: "registry:ui",
-                target: "@/components/magicui/MagicCard.tsx",
+                target: "../srcCode/button.tsx",
             },
         ],
         component: React.lazy(async () => {
-            const mod = await import("@/components/magicui/MagicCard.tsx");
+            const mod = await import("../srcCode/button.tsx");
             const exportName =
                 Object.keys(mod).find(
                     (key) =>
@@ -29,4 +29,52 @@ export const Index: Record<string, any> = {
         meta: undefined,
     },
 
+    "random-emoji": {
+        name: "random-emoji",
+        description:
+            "Random - Emoji Animation",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "../srcCode/random-emoji.tsx",
+                type: "registry:ui",
+                target: "../srcCode/random-emoji.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("../srcCode/random-emoji.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" || typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+    "neon-timeline": {
+        name: "neon-timeline",
+        description:
+            "Random - Emoji Animation",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "../srcCode/neon-timeline.tsx",
+                type: "registry:ui",
+                target: "../srcCode/neon-timeline.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("../srcCode/neon-timeline.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" || typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
 };

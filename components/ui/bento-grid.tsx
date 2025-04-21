@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export const BentoGrid = ({
     className,
-    children,
+    children
 }: {
     className?: string;
     children?: React.ReactNode;
