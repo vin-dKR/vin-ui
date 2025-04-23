@@ -1,13 +1,14 @@
+import React, { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs"
 import { Index } from "./__registry__";
 import { ComponentWrapper } from "./ComponentWrapper";
+import SourceCode from "./SourceCode"; // Adjust the import path
 import { Icons } from "./Icons";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./Tabs"
-import { cn } from "@/lib/utils";
-import * as React from "react";
-import SourceCode from "./SourceCode";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
     name: string;
+    children?: React.ReactNode;
     align?: "center" | "start" | "end";
     preview?: boolean;
 }
@@ -20,12 +21,16 @@ export function ComponentPreview({
     preview = false,
     ...props
 }: ComponentPreviewProps) {
+    const [selectedVariant, setSelectedVariant] = useState<string>(
+        Index[name]?.variants?.[0] || "purple"
+    );
 
     const Preview = React.useMemo(() => {
         const Component = Index[name]?.component;
 
         if (!Component) {
-            console.error(`Component with name "${name}" not found in registry.`);
+            console.error(`import { Icons } from "./Icons";
+                          Component with name "${name}" not found in registry.`);
             return (
                 <p className="text-sm text-muted-foreground">
                     Component{" "}
@@ -37,14 +42,14 @@ export function ComponentPreview({
             );
         }
 
-        return <Component />
-    }, [name]);
+        return <Component variant={selectedVariant} />;
+    }, [name, selectedVariant])
 
     return (
         <div
             className={cn(
                 "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
-                className,
+                className
             )}
             {...props}
         >
@@ -67,8 +72,9 @@ export function ComponentPreview({
                         </TabsList>
                     </div>
                 )}
+
                 <TabsContent value="preview" className="relative rounded-md">
-                    <ComponentWrapper name={name}>
+                    <ComponentWrapper selectedVariant={selectedVariant} setSelectedVariant={setSelectedVariant} name={name}>
                         <React.Suspense
                             fallback={
                                 <div className="flex items-center text-sm text-muted-foreground">
@@ -88,4 +94,3 @@ export function ComponentPreview({
         </div>
     );
 }
-

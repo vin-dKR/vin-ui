@@ -27,6 +27,8 @@ export const Index: Record<string, any> = {
             return { default: mod.default || mod[exportName] };
         }),
         meta: undefined,
+        variants: ["black", "white", "purple", "blue", "red"],
+
     },
 
     "random-emoji": {
@@ -75,6 +77,7 @@ export const Index: Record<string, any> = {
                 ) || item.name;
             return { default: mod.default || mod[exportName] };
         }),
+        utils: ["timeline.css", "timeline-data.ts"],
         meta: undefined,
     },
 };
