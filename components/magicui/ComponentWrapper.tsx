@@ -12,7 +12,7 @@ export const ComponentWrapper = ({
     className,
     children,
 }: ComponentWrapperProps) => {
-    const [key, setKey] = React.useState(0);
+    // const [key, setKey] = React.useState(0);
 
     return (
         <div
@@ -20,7 +20,7 @@ export const ComponentWrapper = ({
                 "max-w-screen relative rounded-xl border ",
                 className,
             )}
-            key={key}
+        // key={key}
         >
             <div
                 className={cn(

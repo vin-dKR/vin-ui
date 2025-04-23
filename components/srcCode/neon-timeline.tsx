@@ -6,6 +6,7 @@ import { twMerge } from 'tailwind-merge';
 import { timelineData } from "./utils/timeline-data"
 import "./utils/timeline.css"
 
+// Utility to sanitize HTML content for safe rendering
 const sanitizeHtml = (html: string) => {
     return { __html: html };
 };
@@ -48,22 +49,20 @@ const Timeline: React.FC<TimelineProps> = ({
     gradientColors = ['#3b82f6', '#7f00ff'],
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const entriesRefs = useRef<(HTMLDivElement | null)[]>(Array(data.length).fill(null))
+    const entriesRefs = useRef<(HTMLDivElement | null)[]>(Array(data.length).fill(null));
     const timelineSvgRef = useRef<SVGSVGElement>(null);
     const timelinePathRef = useRef<SVGPathElement>(null);
     const timelineGradientPathRef = useRef<SVGPathElement>(null);
     const circleRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    const [scrollableParent, setScrollableParent] = useState<HTMLElement | Window>(window);
+    // Always use window as the scrollable parent for outer page scroll
+    const scrollableParent = window;
 
+    // Custom CSS properties for styling
     const customStyles: React.CSSProperties = {
-        // height b/w each circle
         '--om-timeline-entries-gap': entriesGap || '4rem',
-        // gap b/w title and summaryPoints
         '--om-timeline-entry-gap': entryGap || '2rem',
-        // title gap from the circle
         '--om-timeline-entry-title-gap': titleGap || '2rem',
-        // width of  svg-path
         '--om-timeline-path-width': pathWidth || '2px',
         '--om-timeline-entry-title-max-width': titleMaxWidth || '0rem',
         '--om-timeline-path-color': pathColor,
@@ -71,6 +70,57 @@ const Timeline: React.FC<TimelineProps> = ({
         '--om-timeline-gradient-end': gradientColors[1],
     } as React.CSSProperties;
 
+    // Utility to debounce a function for performance optimization
+    const debounce = (func: (...args: any[]) => void, wait: number) => {
+        let timeout: NodeJS.Timeout;
+        return (...args: any[]) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), wait);
+        };
+    };
+
+    // Calculate SVG path and circle positions
+    const calculateSvgPathAndCircles = (wrapperRect: DOMRect): { path: string; circlePositions: { x: number; y: number }[] } => {
+        const entries = entriesRefs.current.filter(Boolean) as HTMLDivElement[];
+        if (entries.length === 0) return { path: '', circlePositions: [] };
+
+        let path = '';
+        const circlePositions: { x: number; y: number }[] = [];
+        const isMobile = window.innerWidth <= 500;
+        const curveExtension = isMobile ? 200 : 400; // Controls path curvature
+        const padding = 80; // Padding for path positioning
+
+        entries.forEach((entry, i) => {
+            const entryRect = entry.getBoundingClientRect();
+            const startX = i % 2 === 0 ? padding : wrapperRect.width - padding;
+            const endX = i % 2 === 0 ? wrapperRect.width - padding : padding;
+            const startY = entryRect.top - wrapperRect.top + 20;
+            const endY = entryRect.bottom - wrapperRect.top;
+
+            circlePositions.push({ x: startX, y: startY });
+
+            if (i === 0) {
+                path += `M${startX},${startY - 30}`; // Start path at first circle
+            }
+
+            const extendedY = endY + 10;
+            path += ` L${startX},${extendedY}`; // Draw line to end of entry
+
+            if (i < entries.length - 1) {
+                const nextEntryRect = entries[i + 1].getBoundingClientRect();
+                const nextStartY = nextEntryRect.top - wrapperRect.top + 60;
+                const controlPointY1 = extendedY + curveExtension;
+                const controlPointY2 = nextStartY - curveExtension;
+                path += ` C${startX},${controlPointY1} ${endX},${controlPointY2} ${endX},${nextStartY}`; // Cubic Bezier curve
+            } else {
+                path += ` L${startX},${endY + 160}`; // Extend path to end
+            }
+        });
+
+        return { path, circlePositions };
+    };
+
+    // Update SVG path and circle positions
     const updateSvgPathAndCircles = useCallback((wrapperRect: DOMRect) => {
         if (!timelineSvgRef.current || !timelinePathRef.current || !timelineGradientPathRef.current) return;
 
@@ -80,6 +130,7 @@ const Timeline: React.FC<TimelineProps> = ({
         timelinePathRef.current.setAttribute('d', path);
         timelineGradientPathRef.current.setAttribute('d', path);
 
+        // Position circles along the path
         circleRefs.current.forEach((circle, index) => {
             if (circle && circlePositions[index]) {
                 const { x, y } = circlePositions[index];
@@ -87,34 +138,35 @@ const Timeline: React.FC<TimelineProps> = ({
                 circle.style.top = `${y - 80}px`;
             }
         });
-    }, [])
+    }, []);
 
+    // Update the animated gradient path based on window scroll
     const updateTimelineLine = useCallback(() => {
         if (!wrapperRef.current || !timelineGradientPathRef.current) return;
 
         const rect = wrapperRef.current.getBoundingClientRect();
-        const scrollHeight =
-            scrollableParent === window
-                ? window.innerHeight
-                : (scrollableParent as HTMLElement).clientHeight;
+        const scrollY = window.scrollY; // Current scroll position of the window
+        const windowHeight = window.innerHeight; // Viewport height
+        // const documentHeight = document.documentElement.scrollHeight; // Total document height
 
-        const scrollTop =
-            scrollableParent === window
-                ? window.scrollY
-                : (scrollableParent as HTMLElement).scrollTop;
+        // Calculate the timeline's position relative to the document
+        const timelineTop = rect.top + scrollY; // Absolute top position of timeline
+        const timelineHeight = rect.height; // Height of the timeline
 
-        const topPosition = scrollTop - (rect.top + window.scrollY) + 4;
-        const totalHeight = rect.height + 220;
+        // Calculate scroll progress based on when the timeline is in view
+        const scrollProgress = (scrollY + windowHeight - timelineTop) / (timelineHeight + windowHeight);
+        const progress = Math.max(0, Math.min(1, scrollProgress)); // Clamp progress between 0 and 1
 
-        let progress = topPosition / (totalHeight - scrollHeight);
-        progress = Math.max(0, Math.min(1, progress));
-
+        // Animate the gradient path
         const length = timelineGradientPathRef.current.getTotalLength();
         timelineGradientPathRef.current.style.strokeDasharray = `${length}`;
         timelineGradientPathRef.current.style.strokeDashoffset = `${length * (1 - progress)}`;
-    }, [scrollableParent]);
+    }, []);
 
+    // Debounced version of updateTimelineLine for scroll events
+    const debouncedUpdateTimelineLine = useCallback(debounce(updateTimelineLine, 10), [updateTimelineLine]);
 
+    // Set timeline height and update SVG
     const setHeight = useCallback(() => {
         if (!wrapperRef.current) return;
 
@@ -123,80 +175,22 @@ const Timeline: React.FC<TimelineProps> = ({
         updateTimelineLine();
     }, [updateTimelineLine, updateSvgPathAndCircles]);
 
-
+    // Effect to handle scroll and resize events
     useEffect(() => {
-        const determineScrollContext = () => {
-            let parent = wrapperRef.current?.parentElement;
-
-            while (parent && parent !== document.body) {
-                const overflowY = window.getComputedStyle(parent).overflowY;
-                if (overflowY === 'auto' || overflowY === 'scroll') {
-                    setScrollableParent(parent);
-                    break;
-                }
-                parent = parent.parentElement;
-            }
-        };
-
-        determineScrollContext();
         setHeight();
 
-        const handleScroll = () => updateTimelineLine();
+        const handleScroll = () => debouncedUpdateTimelineLine();
         const handleResize = () => setHeight();
 
-        scrollableParent.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
 
+        // Cleanup event listeners
         return () => {
-            scrollableParent.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
-    }, [scrollableParent, data, setHeight, updateTimelineLine]);
-
-
-
-
-    const calculateSvgPathAndCircles = (wrapperRect: DOMRect): { path: string; circlePositions: { x: number; y: number }[] } => {
-        const entries = entriesRefs.current.filter(Boolean) as HTMLDivElement[];
-        if (entries.length === 0) return { path: '', circlePositions: [] };
-
-        let path = '';
-        const circlePositions: { x: number; y: number }[] = [];
-        const isMobile = window.innerWidth <= 500;
-        // BENDING VALAUE: change as per the 
-        const curveExtension = isMobile ? 200 : 300;
-        const padding = 80;
-
-        entries.forEach((entry, i) => {
-            const entryRect = entry.getBoundingClientRect();
-            const startX = i % 2 === 0 ? padding : wrapperRect.width - padding;
-            const endX = i % 2 === 0 ? wrapperRect.width - padding : padding;
-            const startY = entryRect.top - wrapperRect.top + 20;
-            const endY = i % 2 === 0 ? 550 : 1000
-            // const endY = entryRect.bottom - wrapperRect.top;
-
-            circlePositions.push({ x: startX, y: startY });
-
-            if (i === 0) {
-                path += `M${startX},${startY - 160}`;
-            }
-
-            const extendedY = endY + 10;
-            path += ` L${startX},${extendedY}`;
-
-            if (i < entries.length - 1) {
-                const nextEntryRect = entries[i + 1].getBoundingClientRect();
-                const nextStartY = nextEntryRect.top - wrapperRect.top + 60;
-                const controlPointY1 = extendedY + curveExtension;
-                const controlPointY2 = nextStartY - curveExtension;
-                path += ` C${startX},${controlPointY1} ${endX},${controlPointY2} ${endX},${nextStartY}`;
-            } else {
-                path += ` L${startX},${endY + 160}`;
-            }
-        });
-
-        return { path, circlePositions };
-    };
+    }, [setHeight, debouncedUpdateTimelineLine]);
 
     return (
         <div
@@ -204,6 +198,7 @@ const Timeline: React.FC<TimelineProps> = ({
             className={twMerge('om-timeline w-full relative switch', styleClass)}
             style={customStyles}
         >
+            {/* Timeline entries */}
             <div className="om-timeline-entries relative flex flex-col gap-[--om-timeline-entries-gap] max-w-full">
                 {data.map((item, index) => (
                     <div
@@ -215,23 +210,24 @@ const Timeline: React.FC<TimelineProps> = ({
                         }}
                         className={twMerge(
                             'om-timeline-entry flex items-end pt-5 gap-[--om-timeline-entry-gap]',
-                            index % 2 !== 0 ? 'right-side flex-row-reverse justify-end bg-red-300' : 'left-side justify-start'
+                            index % 2 !== 0 ? 'right-side flex-row-reverse justify-end' : 'left-side justify-start'
                         )}
                     >
+                        {/* Entry header with sticky circle and title */}
                         <div
                             className={twMerge(
                                 'om-timeline-entry-header sticky top-0 z-40 flex items-center gap-[--om-timeline-entry-title-gap] relative',
-                                index % 2 !== 0 ? 'flex-row-reverse bg-blue-300' : 'flex-row mr-auto md:mr-0'
+                                index % 2 !== 0 ? 'flex-row-reverse' : 'flex-row mr-auto md:mr-0'
                             )}
                         >
                             <div
                                 ref={(el) => {
                                     if (el !== null) {
-                                        circleRefs.current[index] = el
+                                        circleRefs.current[index] = el;
                                     }
                                 }}
                                 className="om-timeline-circle h-10 w-10 rounded-full bg-black flex items-center justify-center flex-shrink-0"
-                                style={{ position: 'sticky', top: '2rem', right: '60px' }} // Match header sticky
+                                style={{ position: 'sticky', top: '2rem', right: '60px' }}
                             >
                                 <div className="om-timeline-inner-circle h-4 w-4 rounded-full bg-gray-800 border border-gray-600"></div>
                             </div>
@@ -245,16 +241,14 @@ const Timeline: React.FC<TimelineProps> = ({
                             </div>
                         </div>
 
+                        {/* Entry content */}
                         <div
                             className={twMerge(
                                 'om-timeline-entry-content flex-1 max-w-full',
-                                index % 2 !== 0 ? "text-right flex flex-col items-end " : ""
-                            )}>
-                            {/*
-                            {item.image && (
-                                <ImageCarousel images={item.image} />
+                                index % 2 !== 0 ? "text-right flex flex-col items-end" : ""
                             )}
-                            */}
+                        >
+                            {/* {item.image && <ImageCarousel images={item.image} />} */}
                             <div className="text-black dark:text-white font-bold text-sm" dangerouslySetInnerHTML={sanitizeHtml(item.content)} />
                             {item.summaryPoints && (
                                 <ul className="list-disc mt-2">
@@ -266,8 +260,9 @@ const Timeline: React.FC<TimelineProps> = ({
                         </div>
                     </div>
                 ))}
-
             </div>
+
+            {/* SVG for the timeline path */}
             <div className="om-timeline-line-wrapper absolute top-0 w-full h-full pointer-events-none">
                 <svg
                     ref={timelineSvgRef}
@@ -288,12 +283,12 @@ const Timeline: React.FC<TimelineProps> = ({
                             <stop offset="100%" style={{ stopColor: 'transparent', stopOpacity: 1 }} />
                         </linearGradient>
                     </defs>
-                    <path ref={timelinePathRef} className="om-timeline-path" />
-                    <path ref={timelineGradientPathRef} className="om-timeline-gradient-path" />
+                    <path ref={timelinePathRef} className="om-timeline-path" stroke="url(#gradientBg)" />
+                    <path ref={timelineGradientPathRef} className="om-timeline-gradient-path" stroke="url(#gradient)" />
                 </svg>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Timeline
+export default Timeline;

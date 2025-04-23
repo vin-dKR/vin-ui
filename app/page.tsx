@@ -11,7 +11,7 @@ import Footer from '@/components/ui/blocks/Footer';
 
 export default function Home() {
     return (
-        <div className="relative bg-gray-100 dark:bg-red-300">
+        <div className="relative bg-gray-100">
             <GridBackground>
                 <div className='absolute md:inset-0 right-72 top-32 md:right-0 md:top-0 w-full'>
                     <MultiColorBg className='' width='1932' height='1658' />
