@@ -73,6 +73,12 @@ export const docsConfig: DocsConfig = {
                     items: [],
                     category: "Overlays"
                 },
+                {
+                    title: "Neon Underline",
+                    href: "/components/neon-underline",
+                    items: [],
+                    category: "Overlays"
+                },
             ],
         },
     ],

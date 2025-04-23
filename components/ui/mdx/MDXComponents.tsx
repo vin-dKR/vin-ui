@@ -123,7 +123,7 @@ export function MDXComponents(): MDXComponentsType {
         tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
             <tr
                 className={cn(
-                    "border-b border-gray-300 dark:border-zinc-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors",
+                    "border-b border-gray-300 dark:border-zinc-700 last:border-b-0 hover:bg-gray-50/60 dark:hover:bg-zinc-800/50 transition-colors",
                     className
                 )}
                 {...props}

@@ -80,4 +80,27 @@ export const Index: Record<string, any> = {
         utils: ["timeline.css", "timeline-data.ts"],
         meta: undefined,
     },
-};
+    "neon-underline": {
+        name: "neon-underline",
+        description: "just a neon underline",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "../srcCode/neon-underline.tsx",
+                type: "registry:ui",
+                target: "../srcCode/neon-underline.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("../srcCode/neon-underline.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" || typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+}

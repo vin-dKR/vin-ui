@@ -4,7 +4,7 @@ import { GridBackground } from '@/components/grid-bg';
 import { Spotlight } from '@/components/spotlight';
 import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
 import Hero from "@/components/ui/blocks/Hero";
-import MultiColorBg from '@/components/MultiColorBg';
+import MultiColorBg from '@/components/ui/hero/MultiColorBg';
 import Bento from '@/components/ui/bento/Bento';
 import Clientsxx from '@/components/ui/Clientsxx'
 import Footer from '@/components/ui/blocks/Footer';

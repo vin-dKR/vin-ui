@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { docsConfig } from "@/lib/docs-config";
 import DocsSidebar from "@/components/ui/blocks/components/DocSidebar";
 import { GalaxyNavbar } from "@/components/ui/blocks/GalaxyNavbar";
-import MultiColorBg from "@/components/MultiColorBg";
+import MultiColorBg from '@/components/ui/hero/MultiColorBg';
 import { Menu, X } from "lucide-react";
 
 interface ComponentsLayoutProps {

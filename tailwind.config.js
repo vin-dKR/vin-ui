@@ -5,6 +5,10 @@ export default {
     ],
     theme: {
         extend: {
+            borderRadius: {
+                '5xl': '3rem',
+                '6xl': '8rem',
+            },
             boxShadow: {
                 'colored': '0 4px 6px -1px rgba(255, 0, 0, 0.5)',
                 'inset-2xs': 'inset 0 1px 2px rgba(0, 0, 0, 0.2)',  // Very subtle

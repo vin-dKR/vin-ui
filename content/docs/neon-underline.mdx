@@ -1,0 +1,45 @@
+---
+title: NeonUnderline
+date: 2023-08-02
+description: A customizable neon underline effect for text or elements, with color cycling and hover interactions.
+published: true
+---
+
+<ComponentPreview name="neon-underline" />
+
+# Installation
+
+<Tabs defaultValue="manual">
+
+<TabsList>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="neon-underline" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+# Props
+
+| Prop         | Type                                              | Default                                                                 | Description                                                                 |
+|--------------|---------------------------------------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| `children`   | `React.ReactNode`                                 | Come hover here                                                                       | The content to be wrapped with the neon underline effect                    |
+| `colors`     | `{ middle: string; side: string }[]`              | `[{ middle: '#0ea5e9', side: '#6366f1' }, { middle: '#f43f5e', side: '#ec4899' }, { middle: '#10b981', side: '#059669' }, { middle: '#f59e0b', side: '#d97706' }, { middle: '#8b5cf6', side: '#7c3aed' }]` | Array of color pairs for the neon effect's middle and side gradients        |
+| `width`      | `string`                                          | `"75%"`                                                                 | Width of the underline effect relative to the container                     |
+| `className`  | `string`                                          | `""`                                                                    | Additional CSS classes for custom styling of the container                  |
+| `style`      | `React.CSSProperties`                             | `{}`                                                                    | Inline CSS styles for the container                                        |
+| `alwaysOn`   | `boolean`                                         | `false`                                                                 | Whether the neon effect is always visible or only on hover                  |
+| `cycleSpeed` | `number`                                          | `2000`                                                                  | Time in milliseconds for color cycling when `alwaysOn` is true              |
+
