@@ -46,13 +46,22 @@ npm install cobe
 </Tabs>
 
 # Props
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| (All standard `span` props) | `React.ComponentProps<'span'>` | - | Accepts all standard HTML span element attributes |
 
-| Prop        | Type          | Default | Description                                                                                    |
-| ----------- | ------------- | ------- | ---------------------------------------------------------------------------------------------- |
-| `className` | `string`      | `-`     | The css classes for the component                                                              |
-| `config`    | `COBEOptions` | `{}`    | The configuration options for the globe. More details [here](https://cobe.vercel.app/docs/api) |
-
-# Credits
-
+# Behavior
+- Changes the displayed emoji every 500ms
+- Avoids showing the same emoji consecutively
+- Cleans up the interval timer on unmount
+- Accepts all standard span props (className, style, etc.)
 
 
+
+# Example Usage
+
+```jsx
+<RandomEmoji 
+  className="text-2xl"
+  aria-label="Randomly changing emoji"
+/>

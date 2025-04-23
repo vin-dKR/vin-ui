@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 // import ImageCarousel from './ImageCarousel';
 import { timelineData } from "./utils/timeline-data"
@@ -253,7 +253,7 @@ const Timeline: React.FC<TimelineProps> = ({
                             {item.summaryPoints && (
                                 <ul className="list-disc mt-2">
                                     {item.summaryPoints.map((point, i) => (
-                                        <li key={i} className="text-sm md:text-md text-gray-700 list-none">{point}</li>
+                                        <li key={i} className="text-sm md:text-md text-gray-500 list-none">{point}</li>
                                     ))}
                                 </ul>
                             )}

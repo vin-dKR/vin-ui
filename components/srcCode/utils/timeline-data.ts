@@ -36,9 +36,9 @@ export const timelineData: TimelineEntry[] = [
             },
         ],
         summaryPoints: [
-            '• Developed a task management app using React and Node.js',
-            '• Implemented RESTful APIs and MongoDB integration',
-            '• Designed responsive UI with Tailwind CSS',
+            '• Developed a feat: ',
+            '• Implemented RESTful APIs',
+            '• Designed responsive UI',
         ],
     },
     {
@@ -58,9 +58,9 @@ export const timelineData: TimelineEntry[] = [
             },
         ],
         summaryPoints: [
-            '• Contributed to microservices architecture with Spring Boot',
-            '• Automated CI/CD pipelines using Jenkins',
-            '• Performed unit testing and bug fixing',
+            'Contributed to microservices •',
+            'Automated CI/CD pipelines •',
+            'Performed unit testing •',
         ],
     },
 ];

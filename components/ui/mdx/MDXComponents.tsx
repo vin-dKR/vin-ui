@@ -107,27 +107,33 @@ export function MDXComponents(): MDXComponentsType {
             />
         ),
         table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
-            <div className="my-6 w-full overflow-y-auto rounded-lg border dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
+            <div className="my-6 w-full overflow-y-auto rounded-lg border border-gray-400 dark:border-zinc-600 dark:bg-zinc-900/30 dark:text-zinc-400">
                 <table
-                    className={cn("my-0 w-full overflow-hidden", className)}
+                    className={cn("my-0 w-full overflow-hidden border-collapse border border-gray-400 dark:border-zinc-600", className)}
                     {...props}
                 />
             </div>
         ),
-        thead: ({
-            className,
-            ...props
-        }: React.HTMLAttributes<HTMLTableSectionElement>) => (
-            <thead className={cn("border-b last:border-b-0", className)} {...props} />
+        thead: ({ className, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+            <thead
+                className={cn("border-b border-gray-400 dark:border-zinc-600", className)}
+                {...props}
+            />
         ),
         tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
-            <tr className={cn("border-b last:border-b-0", className)} {...props} />
+            <tr
+                className={cn(
+                    "border-b border-gray-300 dark:border-zinc-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors",
+                    className
+                )}
+                {...props}
+            />
         ),
         th: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
             <th
                 className={cn(
-                    "text-balance border-r px-6 py-3 text-left font-mono text-sm font-semibold tracking-tight last:border-r-0",
-                    className,
+                    "text-balance border-r border-gray-400 dark:border-zinc-600 px-6 py-3 text-left font-mono text-sm font-semibold tracking-tight last:border-r-0",
+                    className
                 )}
                 {...props}
             />
@@ -135,8 +141,8 @@ export function MDXComponents(): MDXComponentsType {
         td: ({ className, ...props }: React.HTMLAttributes<HTMLTableCellElement>) => (
             <td
                 className={cn(
-                    "border-r px-6 py-3 text-sm last:border-r-0 [&[align=center]]:text-center [&[align=right]]:text-right",
-                    className,
+                    "border-r border-gray-300 dark:border-zinc-700 px-6 py-3 text-sm last:border-r-0 [&[align=center]]:text-center [&[align=right]]:text-right",
+                    className
                 )}
                 {...props}
             />

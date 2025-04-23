@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 import rehypeSlug from "rehype-slug"
 import { visit } from "unist-util-visit"
+import remarkGfm from 'remark-gfm'
 
 const DOCS_PATH = path.join(process.cwd(), 'content/docs')
 
@@ -19,6 +20,9 @@ export async function getMDXContent(slug: string): Promise<MDXContent> {
 
     const mdxSource = await serialize(content, {
         mdxOptions: {
+            remarkPlugins: [
+                remarkGfm,
+            ],
             rehypePlugins: [
                 rehypeSlug,
                 () => (tree) => {

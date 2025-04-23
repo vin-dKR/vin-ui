@@ -25,12 +25,15 @@ published: true
 
 # Props
 
-| Prop        | Type          | Default | Description                                                                                    |
-| ----------- | ------------- | ------- | ---------------------------------------------------------------------------------------------- |
-| `className` | `string`      | `-`     | The css classes for the component                                                              |
-| `config`    | `COBEOptions` | `{}`    | The configuration options for the globe. More details [here](https://cobe.vercel.app/docs/api) |
-
-# Credits
-
-
+| Prop             | Type                         | Default                              | Description                                                        |
+|------------------|------------------------------|--------------------------------------|--------------------------------------------------------------------|
+| `data`           | `TimelineEntry[]`            | `timelineData`                       | Array of timeline entries containing title, content, date, etc.    |
+| `styleClass`     | `string`                     | -                                    | Additional CSS classes for custom styling of the timeline container |
+| `entriesGap`     | `string`                     | `"4rem"`                             | Gap between timeline entries                                       |
+| `entryGap`       | `string`                     | `"2rem"`                             | Gap between elements within a single timeline entry                |
+| `titleGap`       | `string`                     | `"2rem"`                             | Gap between the title and other elements in an entry               |
+| `pathWidth`      | `string`                     | `"2px"`                              | Width of the timeline path                                         |
+| `titleMaxWidth`  | `string`                     | `"0rem"`                             | Maximum width for the title of each timeline entry                 |
+| `pathColor`      | `string`                     | `"#e2e8f0"`                          | Color of the timeline path                                         |
+| `gradientColors` | `[string, string]`           | `["#3b82f6", "#7f00ff"]`             | Array of two colors for the gradient effect on the timeline path   |
 

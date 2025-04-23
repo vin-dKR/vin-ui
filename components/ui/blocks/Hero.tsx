@@ -44,7 +44,7 @@ const Hero = () => {
                     </RoughNotation>{' '}
 
                     library for designers who demand perfection.
-                    <span className="hidden md:inline"> Built with Tailwind, Framer Motion, and love.</span>
+                    <span className="hidden md:inline"> Built with Tailwind, Framer Motion, and 🫶❤️.</span>
                 </motion.p>
             </div>
 
