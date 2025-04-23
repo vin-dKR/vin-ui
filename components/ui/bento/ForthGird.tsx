@@ -1,4 +1,4 @@
-import MacKeyboard from "../Keyboard";
+import MacKeyboard from "./Keyboard";
 import SpiralCurve from "./svg-components/SpiralCurve";
 
 const ForthGrid = () => {

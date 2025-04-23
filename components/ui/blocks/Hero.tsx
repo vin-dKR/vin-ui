@@ -1,9 +1,9 @@
 import React from "react";
 import { RoughNotation } from "react-rough-notation";
 import { motion } from "framer-motion";
-import { RandomEmoji } from "../RandomEmoji";
-import { Separator } from "../Separator";
-import MySlogan from "@/components/MySlogan";
+import { RandomEmoji } from "../hero/RandomEmoji";
+import { Separator } from "../hero/Separator"
+import MySlogan from "../hero/MySlogan";
 import ThreeDBtn from "../customBtn/3dButton";
 
 const Hero = () => {

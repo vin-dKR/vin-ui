@@ -24,8 +24,8 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
     if (!mounted) return <div></div>
 
     return (
-        <div className="relative w-full flex items-center justify-center">
-            <div className='w-[60%] bg-white dark:bg-black/90 transition-colors duration-300 rounded rounded-t-[100px] border-b-0 border border-12 border-gray-200/60 dark:border-gray-700/50 backdrop-blur-lg'>
+        <div className="relative w-full flex items-center justify-center mt-30">
+            <div className='w-full lg:w-[60%] bg-white dark:bg-black/90 transition-colors duration-300 rounded rounded-t-[100px] border-b-0 border border-12 border-gray-200/60 dark:border-gray-700/50 backdrop-blur-lg'>
                 <div className='border border-2 border-gray-300 dark:border-gray-300/40 border-b-0 rounded rounded-t-[90px]'>
                     <MultiColorBg width='1934' height='1658' className='absolute w-42 top-[-400px] left-[-900px] lg:top-[-350px] lg:left-0 lg:w-full z-10' />
                     <div className="container mx-auto px-20 z-20 py-16">
@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                                 <h3 className="text-2xl text-shadow-md font-bold bg-gradient-to-r from-violet-500 to-purple-300 bg-clip-text text-transparent">
                                     Vin-UI
                                 </h3>
-                                <p className="text-gray-400 mt-2 text-shadow-sm z-40">For those who refuse to compromise</p>
+                                <p className="text-black/70 dark:text-white/70 mt-2 text-shadow-sm z-40">For those who refuse to compromise</p>
                             </div>
 
                             <div className="flex flex-col gap-2 z-40 text-shadow-sm">
@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                                     <a
                                         key={item}
                                         href="https://github.com/vin-dKR/vin-ui"
-                                        className="text-gray-700 hover:text-white transition-colors font-medium"
+                                        className="text-black/60 dark:text-white/60 hover:text-white dark:hover:text-white transition-colors font-medium"
                                     >
                                         {item}
                                     </a>
@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                             </div>
                         </div>
 
-                        <div className='absolute bottom-40 opacity-20'>
+                        <div className='absolute left-6 md:left-20 bottom-45 md:bottom-40 opacity-20'>
                             <Image
                                 src="/Vin-UI.png"
                                 alt="logo"

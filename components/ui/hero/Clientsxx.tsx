@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sparkles } from './Sparkle';
-import ThreeDBtn from './customBtn/3dButton';
+import ThreeDBtn from '../customBtn/3dButton';
 
 function Clientsxx() {
     return (
