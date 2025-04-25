@@ -37,3 +37,18 @@ published: true
 | `pathColor`      | `string`                     | `"#e2e8f0"`                          | Color of the timeline path                                         |
 | `gradientColors` | `[string, string]`           | `["#3b82f6", "#7f00ff"]`             | Array of two colors for the gradient effect on the timeline path   |
 
+# Example Usage
+```jsx
+// once check the types`
+const rawData: TimelineEntry[] = [
+    {
+        title: 'TechTrend Innovations',
+        content: 'Junior Software Engineer',
+        date: 'Mar 2021 - Jun 2022',
+    },
+];
+
+<NeonUnderline 
+    data={rawData}
+/>
+

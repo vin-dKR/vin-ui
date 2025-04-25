@@ -1,8 +1,8 @@
 import { docsConfig } from '@/lib/docs-config';
 import GlowingCard from './GlowingCard';
 
-const NEW_COMPONENTS = ['Card']
-const TRENDING_COMPONENTS = ['Neon Timeline']
+const NEW_COMPONENTS = ['Random Emoji']
+const TRENDING_COMPONENTS = ['Neon Timeline', 'Neon Underline']
 
 const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) => {
     const filteredComponents = docsConfig.sidebarNav

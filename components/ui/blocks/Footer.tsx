@@ -85,7 +85,7 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default Footer;

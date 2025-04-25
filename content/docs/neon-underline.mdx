@@ -9,25 +9,17 @@ published: true
 
 # Installation
 
-<Tabs defaultValue="manual">
+<Tabs defaultValue="cli">
 
-<TabsList>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
-</TabsList>
+    <TabsList>
+        <TabsTrigger value="cli">CLI</TabsTrigger>
+    </TabsList>
 
-<TabsContent value="manual">
-
-<Steps>
-
-<Step>Copy and paste the following code into your project.</Step>
-
-<ComponentSource name="neon-underline" />
-
-<Step>Update the import paths to match your project setup.</Step>
-
-</Steps>
-
-</TabsContent>
+    <TabsContent value="cli">
+        ```bash
+        vin-ui add neon-underline
+        ```
+    </TabsContent>
 
 </Tabs>
 
@@ -42,4 +34,11 @@ published: true
 | `style`      | `React.CSSProperties`                             | `{}`                                                                    | Inline CSS styles for the container                                        |
 | `alwaysOn`   | `boolean`                                         | `false`                                                                 | Whether the neon effect is always visible or only on hover                  |
 | `cycleSpeed` | `number`                                          | `2000`                                                                  | Time in milliseconds for color cycling when `alwaysOn` is true              |
+
+
+# Example Usage
+```jsx
+<NeonUnderline className="text-2xl">
+    hii this is the child text!
+</NeonUnderline>
 

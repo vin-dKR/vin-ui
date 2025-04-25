@@ -34,10 +34,10 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
 
             {/* Mobile Sidebar (Animated) */}
             <aside className={`
-                    md:hidden fixed top-[calc(5rem_+_10px)] right-4 z-35 w-[calc(100%-2rem)] max-w-xs
                     bg-gradient-to-b dark:from-white/5 from-black/5 from-50% to-transparent backdrop-blur-md
                     rounded rounded-xl p-4
                     transition-all duration-300 transform
+                    md:hidden fixed top-[calc(5rem_+_10px)] right-4 z-35 w-[calc(100%-2rem)] max-w-xs
                     ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-[120%]'}
                     `}>
                 <DocsSidebar items={docsConfig.sidebarNav} />
@@ -48,7 +48,32 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
 
             <div className="flex md:flex-row mx-auto relative gap-4 lg:gap-10">
                 <aside
-                    className="fixed md:left-4 lg:left-0 xl:left-64 px-4 pr-2 pt-4 bg-gradient-to-b dark:from-white/5 bg-opacity-50 from-black/5 from-60% to-transparent backdrop-blur-lg rounded-xl top-[calc(5rem_+_35px)] z-30 ml-4 hidden h-[calc(90vh-6.5rem)] w-[240px] shrink-0 md:block"
+                    className="
+                    fixed
+                    hidden
+                    md:block
+                    z-30
+                    top-[calc(5rem_+_35px)]
+                    h-[calc(90vh-6.5rem)]
+                    w-[240px]
+                    shrink-0
+                    ml-4
+                    px-4
+                    pr-2
+                    pt-4
+                    bg-gradient-to-b
+                    from-black/5
+                    dark:from-white/5
+                    from-60%
+                    to-transparent
+                    bg-opacity-50
+                    backdrop-blur-lg
+                    rounded-xl
+                    md:left-4
+                    lg:left-0
+                    xl:left-0
+                    2xl:left-[calc((100vw-1436px)/2)]
+                    "
                 >
                     <DocsSidebar items={docsConfig.sidebarNav} />
                 </aside>
