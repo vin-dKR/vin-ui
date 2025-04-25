@@ -61,9 +61,18 @@ export default async function ComponentPage({
             </article>
 
             <div className="
-                hidden md:block fixed overflow-y-auto
-                md:right-0 lg:right-0 xl:right-64 top-[calc(5rem_+_1rem)] 
-                h-[calc(100vh-6.5rem)] w-[270px] p-4 
+                hidden 
+                lg:block 
+                fixed 
+                right-4 
+                lg:right-8 
+                xl:right-0 // Even more on XL
+                2xl:right-[calc((100vw-1436px)/2)] // Centers in remaining space for 2xl screens
+                top-[calc(5rem_+_1rem)] 
+                h-[calc(100vh-6.5rem)] 
+                w-[270px] 
+                p-4 
+                overflow-y-auto
             ">
                 <div className="
                     bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent 

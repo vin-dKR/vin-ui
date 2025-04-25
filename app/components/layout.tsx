@@ -18,7 +18,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
         <div className="relative flex min-h-screen flex-col overflow-hidden w-full">
             <GalaxyNavbar />
             <button
-                className="md:hidden fixed right-4 top-[calc(6rem_+_4px)] z-40 p-2 rounded-lg bg-gray-900/10 backdrop-blur-sm border border-gray-800/30"
+                className="lg:hidden fixed right-4 top-[calc(6rem_+_4px)] z-40 p-2 rounded-lg bg-gray-900/10 backdrop-blur-sm border border-gray-800/30"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -26,7 +26,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
 
             {/* Mobile Menu Overlay */}
             <div className={`
-                md:hidden fixed inset-0 z-30 bg-black/5 backdrop-blur-sm transition-opacity duration-300
+                lg:hidden fixed inset-0 z-30 bg-black/5 backdrop-blur-sm transition-opacity duration-300
                 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
                 `}
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -37,7 +37,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
                     bg-gradient-to-b dark:from-white/5 from-black/5 from-50% to-transparent backdrop-blur-md
                     rounded rounded-xl p-4
                     transition-all duration-300 transform
-                    md:hidden fixed top-[calc(5rem_+_10px)] right-4 z-35 w-[calc(100%-2rem)] max-w-xs
+                    lg:hidden fixed top-[calc(5rem_+_10px)] right-4 z-35 w-[calc(100%-2rem)] max-w-xs
                     ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-[120%]'}
                     `}>
                 <DocsSidebar items={docsConfig.sidebarNav} />
@@ -51,7 +51,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
                     className="
                     fixed
                     hidden
-                    md:block
+                    lg:block
                     z-30
                     top-[calc(5rem_+_35px)]
                     h-[calc(90vh-6.5rem)]

@@ -39,11 +39,11 @@ export default function ComponentsPage() {
 
             <div className="
                 hidden 
-                md:block 
+                lg:block 
                 fixed 
                 right-4 
                 lg:right-8 
-                xl:right-12 // Even more on XL
+                xl:right-0 // Even more on XL
                 2xl:right-[calc((100vw-1436px)/2)] // Centers in remaining space for 2xl screens
                 top-[calc(5rem_+_1rem)] 
                 h-[calc(100vh-6.5rem)] 
