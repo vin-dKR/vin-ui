@@ -1,18 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Component, BookUser } from 'lucide-react';
+import { Component } from 'lucide-react';
 
 const navItems = [
     {
         name: 'Components',
         link: '/components',
         icon: <Component className="h-4 w-4" />,
-    },
-    {
-        name: 'Docs',
-        link: '/docs',
-        icon: <BookUser className="h-4 w-4" />,
     },
 ];
 
