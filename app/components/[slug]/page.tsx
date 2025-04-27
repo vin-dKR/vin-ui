@@ -36,7 +36,7 @@ export default async function ComponentPage({
     try {
         doc = await getMDXContent(slug);
         console.log(doc.headings)
-    } catch (error) {
+    } catch {
         notFound();
     }
 

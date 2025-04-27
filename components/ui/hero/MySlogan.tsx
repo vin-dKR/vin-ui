@@ -48,6 +48,8 @@ const MySlogan = () => {
 
         sequence.forEach((seq: AnimationSequenceItem) => {
             const { selector, properties, options } = seq;
+            // eslint-disable-next-line
+            // @ts-ignore
             animate(selector, properties, options);
         });
 

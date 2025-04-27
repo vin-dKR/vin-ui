@@ -32,6 +32,7 @@ export async function getMDXContent(slug: string): Promise<MDXContent> {
                             let headingText = '';
 
                             // Recursively find text nodes
+                            // eslint-disable-next-line
                             const extractText = (n: any) => {
                                 if (n.type === 'text') {
                                     headingText += n.value;

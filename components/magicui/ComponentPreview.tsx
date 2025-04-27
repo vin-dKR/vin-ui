@@ -8,16 +8,13 @@ import { Icons } from "./Icons";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
     name: string;
-    children?: React.ReactNode;
-    align?: "center" | "start" | "end";
     preview?: boolean;
+    className?: string
 }
 
 export function ComponentPreview({
     name,
-    children,
     className,
-    align = "center",
     preview = false,
     ...props
 }: ComponentPreviewProps) {

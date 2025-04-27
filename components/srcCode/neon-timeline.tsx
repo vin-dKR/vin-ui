@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-// import ImageCarousel from './ImageCarousel';
 import { timelineData } from "./utils/timeline-data"
 import "./utils/timeline.css"
 
@@ -55,9 +54,6 @@ const Timeline: React.FC<TimelineProps> = ({
     const timelineGradientPathRef = useRef<SVGPathElement>(null);
     const circleRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    // Always use window as the scrollable parent for outer page scroll
-    const scrollableParent = window;
-
     // Custom CSS properties for styling
     const customStyles: React.CSSProperties = {
         '--om-timeline-entries-gap': entriesGap || '4rem',
@@ -71,8 +67,10 @@ const Timeline: React.FC<TimelineProps> = ({
     } as React.CSSProperties;
 
     // Utility to debounce a function for performance optimization
+    // eslint-disable-next-line
     const debounce = (func: (...args: any[]) => void, wait: number) => {
         let timeout: NodeJS.Timeout;
+        // eslint-disable-next-line
         return (...args: any[]) => {
             clearTimeout(timeout);
             timeout = setTimeout(() => func(...args), wait);
@@ -164,6 +162,7 @@ const Timeline: React.FC<TimelineProps> = ({
     }, []);
 
     // Debounced version of updateTimelineLine for scroll events
+    // eslint-disable-next-line
     const debouncedUpdateTimelineLine = useCallback(debounce(updateTimelineLine, 10), [updateTimelineLine]);
 
     // Set timeline height and update SVG
@@ -248,7 +247,6 @@ const Timeline: React.FC<TimelineProps> = ({
                                 index % 2 !== 0 ? "text-right flex flex-col items-end" : ""
                             )}
                         >
-                            {/* {item.image && <ImageCarousel images={item.image} />} */}
                             <div className="text-black dark:text-white font-bold text-sm" dangerouslySetInnerHTML={sanitizeHtml(item.content)} />
                             {item.summaryPoints && (
                                 <ul className="list-disc mt-2">

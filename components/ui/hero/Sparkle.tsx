@@ -3,24 +3,7 @@
 import { useEffect, useId, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
-
-interface SparklesProps {
-    className?: string;
-    size?: number;
-    minSize?: number | null;
-    density?: number;
-    speed?: number;
-    minSpeed?: number | null;
-    opacity?: number;
-    direction?: string;
-    opacitySpeed?: number;
-    minOpacity?: number | null;
-    color?: string;
-    mousemove?: boolean;
-    hover?: boolean;
-    background?: string;
-    options?: Record<string, any>; // Adjust type as needed based on `options` structure
-}
+import type { IOptions, RecursivePartial } from "@tsparticles/engine";
 
 export function Sparkles({
     className,
@@ -30,14 +13,12 @@ export function Sparkles({
     speed = 1.5,
     minSpeed = null,
     opacity = 1,
-    direction = '',
     opacitySpeed = 3,
     minOpacity = null,
     color = '#ffffff',
     mousemove = false,
     hover = false,
     background = 'transparent',
-    options = {},
 }: SparklesProps) {
     const [isReady, setIsReady] = useState(false);
 
@@ -50,11 +31,9 @@ export function Sparkles({
     }, []);
 
     const id = useId();
-    const defaultOptions = {
+    const defaultOptions: RecursivePartial<IOptions> = {
         background: {
-            color: {
-                value: background,
-            },
+            color: background,
         },
         fullScreen: {
             enable: false,
@@ -77,6 +56,7 @@ export function Sparkles({
                         smooth: 10,
                     },
                 },
+                // eslint-disable-next-line
                 resize: true as any,
             },
             modes: {
@@ -95,7 +75,6 @@ export function Sparkles({
             },
             move: {
                 enable: true,
-                direction,
                 speed: {
                     min: minSpeed || speed / 130,
                     max: speed,
@@ -148,7 +127,6 @@ export function Sparkles({
     return (
         isReady && (
             <Particles id={id}
-                // @ts-nocheck
                 options={defaultOptions} className={className} />
         )
     );

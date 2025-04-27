@@ -128,7 +128,7 @@ const SourceCode: React.FC<SourceCodeProps> = ({ name }) => {
 
             <div
                 ref={codeContainerRef}
-                className={`overflow-x-auto transition-all duration-300 ${isExpanded ? 'max-h-none' : 'max-h-[350px] overflow-y-hidden'
+                className={`transition-all duration-300 ${isExpanded ? 'max-h-none overflow-x-auto' : 'max-h-[350px] overflow-hidden'
                     }`}
             >
                 <ShikiClient code={activeContent} lang={activeLanguage} />
@@ -143,7 +143,7 @@ const SourceCode: React.FC<SourceCodeProps> = ({ name }) => {
             {isOverflowing && (
                 <div className="absolute bottom-2 left-0 right-0 flex justify-center">
                     <button
-                        className="bg-gray-200 dark:bg-gray-700 text-sm px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors z-10"
+                        className="bg-gray-200 dark:bg-gray-700/80 text-sm px-3 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors z-10 shadow-sm shadow-white"
                         onClick={handleToggle}
                         aria-label={isExpanded ? 'Shrink code block' : 'Expand code block'}
                     >

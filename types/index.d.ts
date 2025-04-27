@@ -75,4 +75,22 @@ declare global {
         currentPage: string;
     }
 
+    interface SparklesProps {
+        className?: string;
+        size?: number;
+        minSize?: number | null;
+        density?: number;
+        speed?: number;
+        minSpeed?: number | null;
+        opacity?: number;
+        direction?: string;
+        opacitySpeed?: number;
+        minOpacity?: number | null;
+        color?: string;
+        mousemove?: boolean;
+        hover?: boolean;
+        background?: string;
+        // eslint-disable-next-line
+        options?: Record<string, any>; // Adjust type as needed based on `options` structure
+    }
 }

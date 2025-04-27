@@ -12,14 +12,8 @@ interface RowObject {
     keys: KeyObject[];
 }
 
-interface MousePosition {
-    x: number;
-    y: number;
-}
-
 const MacKeyboard = () => {
     const [hoveredKey, setHoveredKey] = useState<string | null>(null);
-    const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
     const [mounted, setMounted] = useState(false)
 
 
@@ -131,12 +125,6 @@ const MacKeyboard = () => {
         },
     ];
 
-    const handleMouseMove = (e: React.MouseEvent, rowIndex: number, keyIndex: number): void => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        setMousePosition({ x, y });
-    };
 
     const { theme } = useTheme()
     const isDarkMode = theme === "dark"
@@ -158,7 +146,6 @@ const MacKeyboard = () => {
                                     className={`${keyObj.width} h-12 mx-0.5 relative cursor-pointer`}
                                     onMouseEnter={() => setHoveredKey(`${rowIndex}-${keyIndex}`)}
                                     onMouseLeave={() => setHoveredKey(null)}
-                                    onMouseMove={(e) => handleMouseMove(e, rowIndex, keyIndex)}
                                 >
                                     <div
                                         className={`

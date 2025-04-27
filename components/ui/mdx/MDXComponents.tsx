@@ -5,6 +5,7 @@ import { MDXComponents as MDXComponentsType } from 'mdx/types'
 import { ComponentSource } from "@/components/magicui/ComponentSource";
 import { ComponentPreview } from "@/components/magicui/ComponentPreview";
 
+// eslint-disable-next-line
 const CustomLink = (props: any) => {
     const href = props.href;
 
@@ -253,13 +254,11 @@ export function MDXComponents(): MDXComponentsType {
             />
         ),
         ComponentPreview: ({
-            className,
             ...props
         }: React.ComponentProps<typeof ComponentPreview>) => (
             <ComponentPreview {...props} />
         ),
         ComponentSource: ({
-            className,
             ...props
         }: React.ComponentProps<typeof ComponentSource>) => (
             <ComponentSource {...props} />

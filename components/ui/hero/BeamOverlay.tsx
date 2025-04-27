@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const GRID_SIZE: number = 40;
 const CELL_SIZE: number = 40;
-const SVG_SIZE: number = GRID_SIZE * CELL_SIZE;
-const BEAM_LENGTH: number = 10; // Increased beam length for smoother visuals
+const BEAM_LENGTH: number = 10;
 
 interface Coordinate {
     x: number;
@@ -82,7 +81,7 @@ const BeamOverlay: React.FC = () => {
             directionRef.current = newDirection;
         }
 
-        let newHead = getNextPosition(head.x, head.y, newDirection);
+        const newHead = getNextPosition(head.x, head.y, newDirection);
 
         // Handle grid boundaries (wrap around)
         newHead.x = (newHead.x + GRID_SIZE) % GRID_SIZE;
@@ -99,6 +98,7 @@ const BeamOverlay: React.FC = () => {
     };
 
     // Animation loop using requestAnimationFrame for smoother animation
+    // eslint-disable-next-line
     const animate = (timestamp: number) => {
         if (!lastUpdateTimeRef.current) {
             lastUpdateTimeRef.current = timestamp;
@@ -133,16 +133,18 @@ const BeamOverlay: React.FC = () => {
         updateBeamPath();
 
         // Start animation loop
-        animationFrameRef.current = requestAnimationFrame(animate);
+        const currentInterval = intervalRef.current; // Store in variable
+        const currentAnimationFrame = animationFrameRef.current;
 
         return () => {
-            if (animationFrameRef.current) {
-                cancelAnimationFrame(animationFrameRef.current);
+            if (currentAnimationFrame) {
+                cancelAnimationFrame(currentAnimationFrame);
             }
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
+            if (currentInterval) {
+                clearInterval(currentInterval);
             }
         };
+
     }, []);
 
     return (

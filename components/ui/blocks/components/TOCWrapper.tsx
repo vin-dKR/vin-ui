@@ -6,8 +6,10 @@ import TableOfContents from './TableOfContents';
 const TOCWrapper = ({ headings }: { headings: MDXHeading[] | undefined }) => {
     const [activeHeading, setActiveHeading] = useState('');
 
-    if (!headings) return
+
     useEffect(() => {
+        if (!headings) return;
+
         const handleScroll = () => {
             const headingsWithPositions = headings.map((h) => {
                 const element = document.getElementById(h.slug);
@@ -30,6 +32,8 @@ const TOCWrapper = ({ headings }: { headings: MDXHeading[] | undefined }) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [headings]);
+
+    if (!headings) return null
 
     return <TableOfContents headings={headings} activeHeading={activeHeading} />;
 }

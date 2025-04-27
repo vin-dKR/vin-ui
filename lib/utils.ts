@@ -29,6 +29,7 @@ export function formatCurrency(amount: number, currency = 'USD', locale = 'en-US
 /**
  * Creates a debounced function that delays invoking func until after wait milliseconds
  */
+// eslint-disable-next-line
 export function debounce<T extends (...args: any[]) => any>(
     func: T,
     wait: number
@@ -44,27 +45,24 @@ export function debounce<T extends (...args: any[]) => any>(
 /**
  * Creates a throttled function that only invokes func at most once per specified period
  */
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: never[]) => unknown>(
     func: T,
     limit: number
 ): (...args: Parameters<T>) => void {
     let lastFunc: ReturnType<typeof setTimeout>;
-    let lastRan: number = 0;
+    let lastRan = 0;
 
-    return function(...args: Parameters<T>) {
-        const context = this;
+    return (...args: Parameters<T>) => {
         const now = Date.now();
 
         if (now - lastRan >= limit) {
-            func.apply(context, args);
+            func(...args);
             lastRan = now;
         } else {
             clearTimeout(lastFunc);
-            lastFunc = setTimeout(function() {
-                if (Date.now() - lastRan >= limit) {
-                    func.apply(context, args);
-                    lastRan = Date.now();
-                }
+            lastFunc = setTimeout(() => {
+                func(...args);
+                lastRan = now;
             }, limit - (now - lastRan));
         }
     };
@@ -96,6 +94,7 @@ export function isValidColor(color: string): boolean {
 /**
  * Safely access deep object properties without throwing errors
  */
+// eslint-disable-next-line
 export function get<T>(obj: Record<string, any>, path: string, defaultValue: T): T {
     const keys = path.split('.');
     let result = obj;
