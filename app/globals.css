@@ -4,6 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    --font-sora: "Sora-Reg", "sans-serif";
+    --font-soraSemi: "Sora-Semi", "sans-serif";
+    --font-soraBold: "Sora-Bold", "sans-serif";
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -44,6 +48,8 @@
 }
 
 :root {
+        --font-sora: "Sora-Reg", "sans-serif";
+
     --grid-gradient-size: 80%;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -80,6 +86,8 @@
 }
 
 .dark {
+        --font-sora: "Sora-Reg", "sans-serif";
+
     --grid-gradient-size: 80%;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -186,3 +194,30 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+@font-face {
+  font-family: Sora-Reg;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Sora-Regular.ttf");
+}
+
+@font-face {
+  font-family: Sora-Semi;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Sora-SemiBold.ttf");
+}
+
+
+@font-face {
+  font-family: Sora-Bold;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Sora-Bold.ttf");
+}
+

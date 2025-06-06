@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { NavLogo } from '../navbar/NavLogo';
@@ -12,12 +12,18 @@ import { NavBackground } from '../navbar/NavBackground';
 import { NavMobileMenu } from '../navbar/NavMobileMenu';
 
 export const GalaxyNavbar = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
     const { scrollY } = useScroll();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [flarePosition, setFlarePosition] = useState({ x: 50, y: 50 });
     const navRef = useRef<HTMLElement>(null);
 
-    const widthScale = useTransform(scrollY, [0, 100], [1, 0.9]);
+    const height = useTransform(scrollY, [0, 100], [60, 60]);
+    // const opacity = useTransform(scrollY, [0, 100], [0.7, 0.9]);
+    const width = useTransform(scrollY, [0, 100], [isMobile ? '90%' : '60%', isMobile ? '85%' : '50%']);
+
 
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!navRef.current) return;
@@ -33,13 +39,35 @@ export const GalaxyNavbar = () => {
         console.log(mobileMenuOpen)
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <>
             <AnimatePresence>
                 <motion.nav
                     ref={navRef}
                     onMouseMove={handleMouseMove}
-                    style={{ scaleX: widthScale }}
+                    style={{
+                        height,
+                        width,
+                    }}
                     className={cn(
                         'fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-[5000]',
                         'backdrop-blur-xl bg-white/5 dark:bg-black/20',
