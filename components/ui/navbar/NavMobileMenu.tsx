@@ -49,7 +49,7 @@ export const NavMobileMenu = ({ isOpen }: { isOpen: boolean }) => {
                             'w-full mt-2 px-4 py-3 rounded-lg font-medium text-base',
                             'bg-gradient-to-r from-violet-600 to-purple-500',
                             'hover:shadow-lg hover:shadow-violet-500/20 transition-all',
-                            'flex items-center justify-center gap-2 group'
+                            'flex items-center justify-center gap-2'
                         )}>
                             <span>Get Started</span>
                             <Sparkle className="h-4 w-4 group-hover:rotate-180 transition-transform" />

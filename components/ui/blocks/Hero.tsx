@@ -1,11 +1,9 @@
 import React from "react";
-import { RoughNotation } from "react-rough-notation";
 import { motion } from "framer-motion";
 import { RandomEmoji } from "../hero/RandomEmoji";
 import { Separator } from "../hero/Separator"
-import MySlogan from "../hero/MySlogan";
-import ThreeDBtn from "../customBtn/3dButton";
 import HeroText from "../hero/MainTextHero";
+import { NavCTA } from "../navbar/NavCTA";
 
 const Hero = () => {
     return (
@@ -25,13 +23,11 @@ const Hero = () => {
 
             <div className="relative flex">
                 <HeroText />
-
             </div>
 
 
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-8">
-                <ThreeDBtn href="/components" text="Browse Components" variant="black" className="text-white" />
-                <ThreeDBtn href="https://github.com/vin-dKR/" text="View it on Github" variant="white" className="text-black" />
+            <div className="flex flex-col sm:flex-row mt-4 w-60">
+                <NavCTA />
             </div>
         </section>
     )
