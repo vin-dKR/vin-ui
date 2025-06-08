@@ -5,6 +5,7 @@ import { RandomEmoji } from "../hero/RandomEmoji";
 import { Separator } from "../hero/Separator"
 import MySlogan from "../hero/MySlogan";
 import ThreeDBtn from "../customBtn/3dButton";
+import HeroText from "../hero/MainTextHero";
 
 const Hero = () => {
     return (
@@ -13,39 +14,18 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="relative px-4 py-2 flex items-center bg-white/5 backdrop-blur-lg rounded-full mb-4 md:mb-12 border border-white/10 shadow-lg"
+                className="relative px-4 py-1 flex items-center bg-white/5 backdrop-blur-lg rounded-full mb-4 md:mb-12 border border-white/10 shadow-lg"
             >
-                <RandomEmoji />
+                <RandomEmoji className="text-shadow-lg text-shadow-white/20" />
                 <Separator className="mx-3 h-4 bg-gray-400" orientation="vertical" />
-                <span className="bg-gradient-to-r from-violet-500 to-purple-300 bg-clip-text text-transparent font-medium">
+                <span className="bg-gradient-to-r from-violet-500 to-purple-300 bg-clip-text text-shadow-lg text-shadow-white/10 text-transparent font-medium">
                     the vinod krs ui
                 </span>
             </motion.div>
 
             <div className="relative flex">
-                <MySlogan />
+                <HeroText />
 
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="absolute top-40 left-5 w-[250px] md:w-[450px] text-sm md:text-xl text-gray-900 dark:text-gray-300 mb-12"
-                >
-                    The {' '}
-                    <RoughNotation
-                        type="underline"
-                        show={true}
-                        color="#5e93cf"
-                        strokeWidth={2}
-                        animationDuration={800}
-                        animationDelay={1000}
-                    >
-                        most advanced React component
-                    </RoughNotation>{' '}
-
-                    library for designers who demand perfection.
-                    <span className="hidden md:inline"> Built with Tailwind, Framer Motion, and 🫶❤️.</span>
-                </motion.p>
             </div>
 
 

@@ -78,7 +78,7 @@ export const GalaxyNavbar = () => {
                 >
                     <NavBackground flarePosition={flarePosition} />
 
-                    <div className="relative flex justify-between items-center h-full px-4 md:px-6">
+                    <div className="relative flex justify-between items-center h-full px-4 md:px-3">
                         <NavLogo />
 
                         <NavItems />

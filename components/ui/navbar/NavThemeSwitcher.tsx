@@ -3,6 +3,7 @@
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import GradientBlob from '../customBtn/GradientBlob';
 
 export const NavThemeSwitcher = () => {
     const { theme, setTheme } = useTheme()
@@ -26,11 +27,13 @@ export const NavThemeSwitcher = () => {
             className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 backdrop-blur-md border border-black/10 border-white/10 flex-shrink-0"
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
-            {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-yellow-300" />
-            ) : (
-                <Moon className="h-5 w-5 text-violet-500" />
-            )}
+            <GradientBlob side='right'>
+                {theme === 'dark' ? (
+                    <Sun className="h-5 w-5 text-yellow-300" />
+                ) : (
+                    <Moon className="h-5 w-5 text-white" />
+                )}
+            </GradientBlob>
         </button>
     );
 };

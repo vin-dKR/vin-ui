@@ -46,7 +46,7 @@ const HeroText = () => {
                         type="underline"
                         show={true}
                         color="#5e93cf"
-                        strokeWidth={2}
+                        strokeWidth={1}
                         animationDuration={800}
                         animationDelay={1000}
                     >

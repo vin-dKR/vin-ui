@@ -7,6 +7,7 @@
     --font-sora: "Sora-Reg", "sans-serif";
     --font-soraSemi: "Sora-Semi", "sans-serif";
     --font-soraBold: "Sora-Bold", "sans-serif";
+    --font-instrui: "Instrui", "sans-serif";
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -219,5 +220,13 @@ html {
   font-weight: 600;
   font-display: swap;
   src: url("/fonts/Sora-Bold.ttf");
+}
+
+@font-face {
+  font-family: Instrui;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/instrumentserif-italic.ttf");
 }
 
