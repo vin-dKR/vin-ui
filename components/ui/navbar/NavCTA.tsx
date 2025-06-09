@@ -4,33 +4,51 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Sparkle } from 'lucide-react';
 
-// Define component with TypeScript
-export const NavCTA: React.FC = () => (
+interface NavCTAProps {
+    className?: string;
+    withBlurEffect?: boolean; // New prop for blur effect
+}
+
+export const NavCTA = ({ className, withBlurEffect = false }: NavCTAProps) => (
     <motion.div
         className={cn(
-            'hidden md:block w-70 mx-4 p-[1px] rounded-full',
-            'bg-gradient-to-br from-white to-purple-950 from-20%'
+            'hidden md:block w-70 mx-4 p-[1px] rounded-full relative',
+            'bg-gradient-to-br from-white to-purple-950 from-20%',
+            className
         )}
         whileHover={{
-            background: 'linear-gradient(to top right, white 20%, #5B21B6)', // Matches hover:to-purple-950
+            background: 'linear-gradient(to top right, white 20%, #5B21B6)',
             transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
         }}
     >
+        {/* Blur effect background (conditionally rendered) */}
+        {withBlurEffect && (
+            <div
+                className="absolute inset-0 -z-10 overflow-hidden rounded-full w-full"
+                aria-hidden="true"
+            >
+                <div className={cn(
+                    'absolute inset-0 bg-gradient-to-br from-white/30 to-[#3A009E]/30',
+                    'blur-lg'
+                )} />
+            </div>
+        )}
+
         <motion.button
             whileHover={{
                 scale: 1.05,
-                skewX: 2, // Subtle horizontal skew for distortion
-                rotate: 1, // Slight rotation for dynamic feel
+                skewX: 2,
+                rotate: 1,
                 transition: {
                     type: 'spring',
                     stiffness: 300,
                     damping: 15,
-                    mass: 0.5, // Lower mass for snappy response
+                    mass: 0.5,
                 },
             }}
             whileTap={{
                 scale: 0.95,
-                skewX: -1, // Reverse skew on tap for feedback
+                skewX: -1,
                 transition: {
                     type: 'spring',
                     stiffness: 400,
@@ -41,7 +59,7 @@ export const NavCTA: React.FC = () => (
             className={cn(
                 'w-full h-10 rounded-full font-medium text-sm relative overflow-hidden flex items-center justify-center',
                 'bg-gradient-to-br from-violet-950 from-20% to-white',
-                'hover:shadow-lg hover:shadow-violet-500/20 transition-all group'
+                'hover:shadow-lg hover:shadow-violet-500/20 transition-all group',
             )}
         >
             <span className="relative font-soraSemi text-lg z-10 text-white flex items-center gap-2 cursor-pointer">
@@ -51,4 +69,3 @@ export const NavCTA: React.FC = () => (
         </motion.button>
     </motion.div>
 );
-

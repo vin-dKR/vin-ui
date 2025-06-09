@@ -1,6 +1,7 @@
 'use client';
 
 import { Menu, X } from 'lucide-react';
+import GradientBlob from '../customBtn/GradientBlob';
 
 export const NavMobileButton = ({ isOpen, onClickAction }: NavMobileButtonProps) => (
     <button
@@ -8,10 +9,12 @@ export const NavMobileButton = ({ isOpen, onClickAction }: NavMobileButtonProps)
         onClick={onClickAction}
         aria-label="Toggle menu"
     >
-        {isOpen ? (
-            <X className="h-5 w-5 text-black dark:text-white" />
-        ) : (
-            <Menu className="h-5 w-5 text-black dark:text-white" />
-        )}
+        <GradientBlob side='right'>
+            {isOpen ? (
+                <X className="h-5 w-5 text-black dark:text-white" />
+            ) : (
+                <Menu className="h-5 w-5 text-black dark:text-white" />
+            )}
+        </GradientBlob>
     </button>
 );

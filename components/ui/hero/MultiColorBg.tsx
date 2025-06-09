@@ -14,7 +14,7 @@ const MultiColorBg = ({ className, width, height }: MultiColorBgProps) => {
         const handleResize = () => {
             if (window.innerWidth < 768) {
                 // Mobile view - tighter crop
-                setViewBox("200 200 1400 1200");
+                setViewBox("400 200 1400 1200");
             } else if (window.innerWidth < 1024) {
                 // Tablet view
                 setViewBox("0 0 1700 1450");
