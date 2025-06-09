@@ -1,23 +1,25 @@
 import React from 'react';
 import { Sparkles } from './Sparkle';
-import ThreeDBtn from '../customBtn/3dButton';
+import GetStartedButton from '../custom/SvgBtn';
 
 function Clientsxx() {
     return (
         <>
             <div className='h-screen w-screen overflow-hidden dark:bg-black flex flex-col items-center justify-center'>
                 <div className='mx-auto mt-32 w-screen max-w-2xl'>
-                    <div className='text-center text-5xl text-white mb-14'>
-                        <span className='text-white dark:text-black text-shadow-lg dark:text-shadow-purple-900'>Trusted by none.</span>
+                    <div className='text-center text-white mb-14'>
+                        <span className='text-white text-shadow-lg dark:text-shadow-purple-900 text-3xl md:text-5xl'>Trusted by none.</span>
 
                         <br />
 
-                        <span className='text-black dark:text-white text-shadow-lg'>Used by the none.</span>
+                        <span className='text-black dark:text-white text-shadow-lg text-2xl md:text-4xl opacity-75'>Used by the none.</span>
                     </div>
 
-                    <div className='relative my-14 items-center flex justify-center z-100 opacity-75'>
-                        <ThreeDBtn href="https://x.com/always_VinodKr" text="Be the first one to put your logo" variant="purple" className="text-white cursor-pointer" />
+                    <div className="flex flex-col sm:flex-row mt-0 cursor-pointer">
+                        <GetStartedButton text='Be the first' className='text-sm md:text-lg' width={50} />
                     </div>
+
+
                 </div>
                 <div
                     className="

@@ -18,7 +18,7 @@ const SecondGrid = () => {
             <SpeedArrow
                 className="
                     w-42 lg:w-52
-                    absolute right-[-24px] top-28 lg:right-0 lg:top-30 
+                    absolute right-[-24px] md: top-28 lg:right-0 lg:top-30 
                     origin-center
                     transition-transform duration-1000 ease-out -rotate-60
                     group-hover:rotate-[150deg] group-hover:duration-[2000ms] group-hover:ease-in

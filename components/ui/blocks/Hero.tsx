@@ -28,7 +28,7 @@ const Hero = () => {
 
 
             <div className="flex flex-col sm:flex-row mt-0 cursor-pointer">
-                <GetStartedButton />
+                <GetStartedButton text="Get Started" />
             </div>
         </section>
     )
