@@ -26,8 +26,12 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
     return (
         <div className="relative w-full flex items-center justify-center mt-30">
             <div className='w-full lg:w-[60%] bg-white dark:bg-black/90 transition-colors duration-300 rounded rounded-t-[100px] border-b-0 border border-12 border-gray-200/60 dark:border-gray-700/50 backdrop-blur-lg'>
-                <div className='border border-2 border-gray-300 dark:border-gray-300/40 border-b-0 rounded rounded-t-[90px]'>
-                    <MultiColorBg width='1934' height='1658' className='absolute w-42 top-[-400px] left-[-900px] lg:top-[-350px] lg:left-0 lg:w-full z-10' />
+
+                <div className='absolute inset-0 w-full -z-10'>
+                    <MultiColorBg className='w-full h-full' width='1600' height='1200' />
+                </div>
+
+                <div className='border border-2 border-gray-300 dark:border-gray-300/40 border-b-0 rounded rounded-t-[90px] z-100'>
                     <div className="container mx-auto px-20 z-20 py-16">
                         <div className="flex flex-col md:flex-row justify-between lg:items-center mb-30">
                             <div className="mb-10 md:mb-0">
@@ -51,37 +55,37 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                             </div>
                         </div>
 
-                        <div className='absolute left-6 md:left-20 bottom-45 md:bottom-40 opacity-20'>
+                        <div className='absolute left-6 md:left-20 bottom-55 md:bottom-40 opacity-20'>
                             <Image
                                 src="/Vin-UI.png"
                                 alt="logo"
-                                width={400}
+                                width={300}
                                 height={400}
                             />
                         </div>
 
-                        <div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
-                            {/* Copyright */}
-                            <div className="text-gray-500 dark:text-gray-400">
-                                &copy; {new Date().getFullYear()} {companyName}. All rights reserved.
-                            </div>
-
-                            {/* Bottom links */}
-                            <div className="flex hidden lg:block flex-wrap justify-center gap-6">
-                                <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Terms of Service</a>
-                                <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Privacy Policy</a>
-                                <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Cookie Policy</a>
-                            </div>
-
-                            {/* Theme toggle button */}
-                            <button
-                                onClick={toggleTheme}
-                                className="flex items-center gap-2 px-3 py-2 rounded-md bg-gray-700/5 dark:bg-gray-700/20 text-gray-700 dark:text-gray-300 hover:bg-gray-300/40 dark:hover:bg-gray-600/40 transition-colors border border-white dark:border-black/10 border-3 z-40 outline-hidden"
-                            >
-                                <span>{theme === "light" ? '🌙' : '☀️'}</span>
-                                <span>{theme === "light" ? 'Dark Mode' : 'Light Mode'}</span>
-                            </button>
+                    </div>
+                    <div className="mt-20 md:mt-10 py-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center mx-4 md:mx-12">
+                        {/* Copyright */}
+                        <div className="text-gray-500 dark:text-gray-400">
+                            &copy; {new Date().getFullYear()} {companyName}. All rights reserved.
                         </div>
+
+                        {/* Bottom links */}
+                        <div className="flex hidden lg:block  justify-center">
+                            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mr-3">Terms of Service</a>
+                            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mr-3">Privacy Policy</a>
+                            <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Cookie Policy</a>
+                        </div>
+
+                        {/* Theme toggle button */}
+                        <button
+                            onClick={toggleTheme}
+                            className="flex items-center gap-2 px-3 py-2 rounded-md bg-gray-700/5 dark:bg-gray-700/20 text-gray-700 dark:text-gray-300 hover:bg-gray-300/40 dark:hover:bg-gray-600/40 transition-colors border border-white dark:border-black/10 border-3 z-40 outline-hidden"
+                        >
+                            <span>{theme === "light" ? '🌙' : '☀️'}</span>
+                            <span>{theme === "light" ? 'Dark Mode' : 'Light Mode'}</span>
+                        </button>
                     </div>
                 </div>
             </div>
