@@ -2,45 +2,39 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 
 interface GetStartedButtonProps {
-    text: string
-    width?: number
+    text?: string
     onClick?: () => void;
     className?: string;
-    style?: React.CSSProperties;
 }
 
-const GetStartedButton: React.FC<GetStartedButtonProps> = ({ text, width = 50, className, style }) => {
+const GetStartedButton: React.FC<GetStartedButtonProps> = ({ text }) => {
     return (
-        <div className={cn('relative h-10 w-full mx-auto', `w-${width}`)}>
+        <div className="relative w-50 h-10 mx-auto">
             {/* Bottom layer: Blurred button */}
             <div
                 className={cn(
-                    'h-12 -top-2 rounded-full font-medium text-sm absolute overflow-hidden flex items-center justify-center',
+                    'w-51 h-12 -top-2 rounded-full font-medium text-sm absolute overflow-hidden flex items-center justify-center',
                     'bg-gradient-to-tl from-violet-950 from-20% to-white',
                     'hover:shadow-lg hover:shadow-violet-500/20 transition-all group z-0',
-                    'blur-md',
-                    `w-${width}`,
-                    className,
+                    'blur-md'
                 )}
             />
             <div className={cn(
-                'absolute h-10 bg-gradient-to-br -top-[2px] -left-[2px] from-white to-[#3A009E]',
-                'rounded-full z-10',
-                `w-${width}`,
+                'absolute w-50 h-10 bg-gradient-to-br -top-[2px] -left-[2px] from-white to-[#3A009E]',
+                'rounded-full z-10'
             )} />
 
             {/* 
             */}
             <div
                 className={cn(
-                    'h-9 rounded-full font-medium text-sm absolute overflow-hidden flex items-center justify-center',
+                    'w-49 h-9 rounded-full font-medium text-sm absolute overflow-hidden flex items-center justify-center',
                     'bg-gradient-to-br from-violet-950 from-20% to-white',
                     'hover:shadow-lg hover:shadow-violet-500/20 transition-all group',
-                    'z-10',
-                    `w-${width - 1}`,
+                    'z-10'
                 )}
             >
-                <p className={cn('font-soraSemi text-xl', className)}>
+                <p className='font-soraSemi text-xl'>
                     {text}
                 </p>
             </div>

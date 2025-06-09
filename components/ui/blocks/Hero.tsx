@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { RandomEmoji } from "../hero/RandomEmoji";
 import { Separator } from "../hero/Separator"
 import HeroText from "../hero/MainTextHero";
-import SvgBtn from "../custom/SvgBtn";
 import GetStartedButton from "../custom/SvgBtn";
 
 const Hero = () => {

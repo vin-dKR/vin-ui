@@ -7,7 +7,7 @@ interface HeroTextProps {
     className?: string
 }
 
-const HeroText = ({ text, className }: HeroTextProps) => {
+const HeroText = ({ text }: HeroTextProps) => {
     return (
         <div className="relative flex flex-col">
             <div className="relative">

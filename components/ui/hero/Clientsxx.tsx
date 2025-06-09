@@ -16,7 +16,7 @@ function Clientsxx() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row mt-0 cursor-pointer">
-                        <GetStartedButton text='Be the first' className='text-sm md:text-lg' width={50} />
+                        <GetStartedButton text='Be the first' className='text-sm md:text-lg' />
                     </div>
 
 

@@ -12,7 +12,6 @@ import { NavBackground } from '../navbar/NavBackground';
 import { NavMobileMenu } from '../navbar/NavMobileMenu';
 
 export const GalaxyNavbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
     const { scrollY } = useScroll();
@@ -40,20 +39,14 @@ export const GalaxyNavbar = () => {
     };
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
 
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
-
-        window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
         handleResize();
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
     }, []);

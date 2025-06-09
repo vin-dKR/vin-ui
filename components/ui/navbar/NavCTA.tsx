@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Sparkle } from 'lucide-react';
+import Link from 'next/link';
 
 interface NavCTAProps {
     className?: string;
@@ -63,7 +64,7 @@ export const NavCTA = ({ className, withBlurEffect = false }: NavCTAProps) => (
             )}
         >
             <span className="relative font-soraSemi text-lg z-10 text-white flex items-center gap-2 cursor-pointer">
-                <a href="/components">Get Started</a>
+                <Link href="/components">Get Started</Link>
                 <Sparkle className="h-4 w-4 group-hover:rotate-180 transition-transform" />
             </span>
         </motion.button>
