@@ -65,14 +65,14 @@ const Footer: React.FC<FooterProps> = ({ companyName = "Vin-UI" }) => {
                         </div>
 
                     </div>
-                    <div className="mt-20 md:mt-10 py-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center mx-4 md:mx-12">
+                    <div className="mt-20 md:mt-10 py-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center mx-4 md:mx-12 text-xs lg:text-sm">
                         {/* Copyright */}
                         <div className="text-gray-500 dark:text-gray-400">
                             &copy; {new Date().getFullYear()} {companyName}. All rights reserved.
                         </div>
 
                         {/* Bottom links */}
-                        <div className="flex hidden lg:block  justify-center">
+                        <div className="flex hidden lg:block   justify-center">
                             <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mr-3">Terms of Service</a>
                             <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mr-3">Privacy Policy</a>
                             <a href="#" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Cookie Policy</a>

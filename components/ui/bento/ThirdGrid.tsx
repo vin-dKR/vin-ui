@@ -29,7 +29,7 @@ const ThirdGrid = () => {
 
             <div className="absolute bottom-0 mx-6 my-3 md:my-10">
                 <h1 className="text-2xl">Cool BTW</h1>
-                <p className="text-sm text-gray-900/50 dark:text-gray-400">Beautiful & Sexy</p>
+                <p className="text-xs md:text-sm text-gray-900/50 dark:text-gray-400">Beautiful & Sexy</p>
             </div>
         </div>
     )

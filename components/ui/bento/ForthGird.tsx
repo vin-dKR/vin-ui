@@ -20,8 +20,8 @@ const ForthGrid = () => {
             </div>
 
             <div className="absolute bottom-0 mx-6 my-3 md:my-10">
-                <h1 className="text-2xl">Custom Compo..</h1>
-                <p className="text-sm text-gray-900/50 dark:text-gray-400">with Top Notch UI/UX</p>
+                <h1 className="text-2xl">Custom Pages</h1>
+                <p className="text-xs md:text-sm text-gray-900/50 dark:text-gray-400">with Top Notch UI/UX</p>
             </div>
         </div>
     );

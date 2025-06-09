@@ -27,7 +27,7 @@ const SecondGrid = () => {
 
             <div className="absolute bottom-0 mx-6 my-3 md:my-10">
                 <h1 className="text-2xl text-shadow-lg">Motions</h1>
-                <p className="text-sm text-gray-900/50 dark:text-gray-400 text-shadow-lg ">120fps animations</p>
+                <p className="text-xs md:text-sm text-gray-900/50 dark:text-gray-400 text-shadow-lg ">120fps animations</p>
             </div>
         </div>
     )
