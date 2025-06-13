@@ -16,7 +16,7 @@ const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) 
         })
 
     return (
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6 min-w-md xl:min-w-3xl">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6 min-w-[240px] md:min-w-md xl:min-w-3xl">
             {filteredComponents.map((item, index) => {
                 const isNew = NEW_COMPONENTS.includes(item.title);
                 const isTrending = TRENDING_COMPONENTS.includes(item.title);

@@ -1,13 +1,16 @@
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 import React from 'react';
 
 interface GetStartedButtonProps {
-    text?: string
-    onClick?: () => void;
+    text: string
+    href: string
     className?: string;
 }
 
-const GetStartedButton: React.FC<GetStartedButtonProps> = ({ text }) => {
+const GetStartedButton = ({ text, href = "/components" }: GetStartedButtonProps) => {
+    console.log('GetStartedButton props:', { href, text }); // Add this line
+
     return (
         <div className="relative w-50 h-10 mx-auto">
             {/* Bottom layer: Blurred button */}
@@ -34,9 +37,9 @@ const GetStartedButton: React.FC<GetStartedButtonProps> = ({ text }) => {
                     'z-10'
                 )}
             >
-                <p className='font-soraSemi text-xl'>
+                <Link href={href} className='font-soraSemi text-xl'>
                     {text}
-                </p>
+                </Link>
             </div>
 
         </div>

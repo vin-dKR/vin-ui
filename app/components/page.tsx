@@ -14,13 +14,13 @@ export default function ComponentsPage() {
 
 
     return (
-        <div className='relative flex w-full lg:flex-row gap-2 lg:gap-8'>
+        <div className='relative flex lg:flex-row gap-2 lg:gap-8'>
             <div className="p-5 w-full bg-gradient-to-b dark:from-white/5 from-black/5 from-60% to-transparent rounded-xl text-white h-auto">
                 <Breadcrumbs
                     currentPage="Components"
                 />
 
-                <div className="px-2 pt-12 text-black dark:text-white">
+                <div className="pt-12 text-black dark:text-white">
                     <h1 className="text-4xl font-bold mb-4">UI Components</h1>
 
                     <div className="w-full lg:w-full gap-8">
