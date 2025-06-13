@@ -79,7 +79,7 @@ const ComponentsLayout = ({ children }: ComponentsLayoutProps) => {
                 </aside>
 
                 <main
-                    className="mx-auto overflow-y-auto mt-30"
+                    className="overflow-y-auto mt-30"
                 >
                     {children}
                 </main>

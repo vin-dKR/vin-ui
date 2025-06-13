@@ -22,7 +22,7 @@ export const ComponentWrapper = ({
     return (
         <div
             className={cn(
-                "max-w-screen relative rounded-xl border ",
+                "relative rounded-xl border",
                 className,
             )}
         >
