@@ -7,7 +7,6 @@ import { NavLogo } from '../navbar/NavLogo';
 import { NavThemeSwitcher } from '../navbar/NavThemeSwitcher';
 import { NavMobileButton } from '../navbar/NavMobileButton';
 import { NavCTA } from '../navbar/NavCTA';
-import { NavItems } from '../navbar/NavItems';
 import { NavBackground } from '../navbar/NavBackground';
 import { NavMobileMenu } from '../navbar/NavMobileMenu';
 
