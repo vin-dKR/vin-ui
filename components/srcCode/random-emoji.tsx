@@ -66,5 +66,5 @@ export function RandomEmoji(props: ComponentProps<"span">) {
         }
     }, [])
 
-    return <span {...props}>{emoji}</span>
+    return <span className="text-8xl" {...props}>{emoji}</span>
 }

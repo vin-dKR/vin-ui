@@ -74,7 +74,6 @@ export const GalaxyNavbar = () => {
                     <div className="relative flex justify-between items-center h-full px-4 md:px-3">
                         <NavLogo />
 
-                        <NavItems />
                         <NavCTA />
 
                         <div className="flex items-center gap-2">

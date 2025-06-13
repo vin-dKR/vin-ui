@@ -12,6 +12,7 @@ export interface SidebarNavItem {
         href: string;
         items: SidebarNavItem[];
         category?: "Layout" | "Animation" | "Display" | "Forms" | "Overlays"
+        gifUrl?: string
     }[];
 }
 
@@ -59,25 +60,30 @@ export const docsConfig: DocsConfig = {
                     title: "Button",
                     href: "/components/button",
                     items: [],
-                    category: "Forms"
+                    category: "Forms",
+                    gifUrl: "/components/gradient-btn.gif"
                 },
                 {
                     title: "Random Emoji",
                     href: "/components/random-emoji",
                     items: [],
-                    category: "Display"
+                    category: "Display",
+                    gifUrl: "/components/random-emoji.gif"
                 },
                 {
                     title: "Neon Timeline",
                     href: "/components/neon-timeline",
                     items: [],
-                    category: "Overlays"
+                    category: "Overlays",
+                    gifUrl: "/components/neon-timeline.gif"
                 },
                 {
                     title: "Neon Underline",
                     href: "/components/neon-underline",
                     items: [],
-                    category: "Overlays"
+                    category: "Overlays",
+                    gifUrl: "/components/neon-underline.gif"
+
                 },
             ],
         },

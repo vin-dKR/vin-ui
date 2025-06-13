@@ -1,5 +1,6 @@
 import { docsConfig } from '@/lib/docs-config';
 import GlowingCard from './GlowingCard';
+import Image from 'next/image';
 
 const NEW_COMPONENTS = ['Random Emoji']
 const TRENDING_COMPONENTS = ['Neon Timeline', 'Neon Underline']
@@ -26,7 +27,13 @@ const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) 
                         <GlowingCard className="h-full w-full group-hover:border-purple-500/50">
                             <div className="aspect-video bg-gray-900/30 p-4 flex items-center justify-center relative">
                                 <div className="text-5xl bg-white/5 w-full h-full rounded-xl text-gray-700 group-hover:text-purple-500 transition-colors">
-                                    {item.title[0]}
+                                    {item.gifUrl && (
+                                        <Image
+                                            src={item.gifUrl}
+                                            alt='hek'
+                                            fill
+                                        />
+                                    )}
                                 </div>
                                 <div className="absolute top-2 right-2 flex gap-2">
                                     {isNew && (
