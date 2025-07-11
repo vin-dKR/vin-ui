@@ -103,4 +103,28 @@ export const Index: Record<string, any> = {
         }),
         meta: undefined,
     },
+    "bubble-bouncing": {
+        name: "bubble-bouncing",
+        description: "bubble-bouncing on hover",
+        type: "registry:ui",
+        registryDependencies: undefined,
+        files: [
+            {
+                path: "../srcCode/bubble-bouncing.tsx",
+                type: "registry:ui",
+                target: "../srcCode/bubble-bouncing.tsx",
+            },
+        ],
+        component: React.lazy(async () => {
+            const mod = await import("../srcCode/bubble-bouncing.tsx");
+            const exportName =
+                Object.keys(mod).find(
+                    (key) =>
+                        typeof mod[key] === "function" || typeof mod[key] === "object",
+                ) || item.name;
+            return { default: mod.default || mod[exportName] };
+        }),
+        meta: undefined,
+    },
+
 }

@@ -85,6 +85,15 @@ export const docsConfig: DocsConfig = {
                     gifUrl: "/components/neon-underline.gif"
 
                 },
+                {
+                    title: "Bubble Bounce",
+                    href: "/components/bubble-bouncing",
+                    items: [],
+                    category: "Display",
+                    gifUrl: "/components/neon-underline.gif"
+
+                },
+
             ],
         },
     ],
