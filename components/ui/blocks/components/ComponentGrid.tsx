@@ -26,12 +26,13 @@ const ComponentsGrid = ({ selectedCategory, searchQuery }: ComponentsGridProps) 
                     <a key={index} href={item.href} className='w-full'>
                         <GlowingCard className="h-full w-full group-hover:border-purple-500/50">
                             <div className="aspect-video bg-gray-900/30 p-4 flex items-center justify-center relative">
-                                <div className="text-5xl bg-white/5 w-full h-full rounded-xl text-gray-700 group-hover:text-purple-500 transition-colors">
+                                <div className="text-5xl bg-white/5 w-full h-full rounded-xl text-gray-700 group-hover:text-purple-500 transition-colors p-1">
                                     {item.gifUrl && (
                                         <Image
                                             src={item.gifUrl}
                                             alt='hek'
                                             fill
+                                            className='p-1 rounded-xl'
                                         />
                                     )}
                                 </div>

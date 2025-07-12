@@ -90,7 +90,7 @@ export const docsConfig: DocsConfig = {
                     href: "/components/bubble-bouncing",
                     items: [],
                     category: "Display",
-                    gifUrl: "/components/neon-underline.gif"
+                    gifUrl: "/components/bubble-bounce.gif"
 
                 },
 
